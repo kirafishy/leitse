@@ -17,6 +17,7 @@ jobs:
       - run:
           name: Install vcpkg dependencies
           command: |
+            ln -s "/opt/vcpkg"
             ./install_libs.py
       - save_cache:
           name: Save vcpkg cache
