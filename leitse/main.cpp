@@ -6,7 +6,10 @@ namespace leitse {
 namespace {
 
 void main_impl(int argc, char** argv)
-{}
+{
+    (void)argc;
+    (void)argv;
+}
 
 int main(int argc, char** argv)
 {
