@@ -58,4 +58,6 @@ add_test(NAME "check_clang_tidy"
 )
 
 
+add_subdirectory("utils")
+
 add_subdirectory("leitse")
