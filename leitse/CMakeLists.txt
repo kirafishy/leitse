@@ -13,17 +13,14 @@ target_link_libraries("${target}" "${target}_base")
 if (BUILD_TESTS)
     file(GLOB_RECURSE test_src "*.test.cpp")
     add_executable("${target}_test" "${test_src}")
-    target_link_libraries("${target}_test" "${target}_base")
+    find_package("doctest" CONFIG REQUIRED)
+    target_link_libraries("${target}_test" "${target}_base" "doctest::doctest")
     add_test(NAME "${target}_test" COMMAND "${target}_test")
 endif ()
 
 
-find_package("cxxopts" CONFIG REQUIRED)
-
 target_link_libraries("${target}_base"
     "utils"
-
-    "cxxopts::cxxopts"
 )
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")

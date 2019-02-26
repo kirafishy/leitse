@@ -10,20 +10,19 @@ add_library("${target}" "${src}")
 if (BUILD_TESTS)
     file(GLOB_RECURSE test_src "*.test.cpp")
     add_executable("${target}_test" "${test_src}")
-    target_link_libraries("${target}_test" "${target}")
+    find_package("doctest" CONFIG REQUIRED)
+    target_link_libraries("${target}_test" "${target}" "doctest::doctest")
     add_test(NAME "${target}_test" COMMAND "${target}_test")
 endif ()
 
 
-find_package("doctest" CONFIG REQUIRED)
 find_package("fmt" CONFIG REQUIRED)
 
 target_link_libraries("${target}"
-    "doctest::doctest"
     "fmt::fmt"
 )
 
 if (UNIX)
     find_package("Threads" REQUIRED)
-    target_link_libraries("${target}" "Threads::Threads" "stdc++fs")
+    target_link_libraries("${target}" INTERFACE "stdc++fs")
 endif ()
