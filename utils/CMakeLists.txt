@@ -25,6 +25,7 @@ target_link_libraries("${target}"
     "spdlog::spdlog"
 )
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    target_link_libraries("${target}" "stdc++fs")
+if (UNIX)
+    find_package("Threads" REQUIRED)
+    target_link_libraries("${target}" "Threads::Threads" "stdc++fs")
 endif ()
