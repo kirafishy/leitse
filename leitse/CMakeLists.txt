@@ -23,6 +23,6 @@ target_link_libraries("${target}_base"
     "utils"
 )
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if (UNIX)
     target_link_libraries("${target}_base" "stdc++fs")
 endif ()
