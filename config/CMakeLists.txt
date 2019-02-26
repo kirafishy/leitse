@@ -24,5 +24,5 @@ target_link_libraries("${target}"
 
 if (UNIX)
     find_package("Threads" REQUIRED)
-    target_link_libraries("${target}" INTERFACE "stdc++fs")
+    target_link_libraries("${target}" "stdc++fs")
 endif ()
