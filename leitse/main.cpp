@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 }
 
 }  // namespace
-}  // namespace fractal
+}  // namespace leitse
 
 
 int main(int argc, char** argv)
