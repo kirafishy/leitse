@@ -9,7 +9,7 @@
 
 Tool to download **Le**ague of Legends **It**em **Se**ts from common aggregators such as [u.gg](https://u.gg/).
 
-`leitse -h` for more information.
+`leitse --help` for more information.
 
 
 ## License
