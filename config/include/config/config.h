@@ -16,8 +16,9 @@ struct Config {
     void clear();
 
     /// Parse command-line arguments (and config file if explicitly given).
-    /// Will remove parsed arguments.
-    int parse_args(int& argc, char const** argv, bool allow_unkown = false);
+    /// Parsed arguments will be removed.
+    /// Return false if application should exit.
+    bool parse_args(int& argc, char const** argv, bool allow_unkown = false);
 
     void parse_global_config(std::string_view const& app_name);
     void parse_file(std::string_view const& path, bool allow_unkown = false);

@@ -34,12 +34,12 @@ void Config::clear()
     map_.clear();
 }
 
-int Config::parse_args(int& argc, char const** argv, bool allow_unkown)
+bool Config::parse_args(int& argc, char const** argv, bool allow_unkown)
 {
     (void)argc;
     (void)argv;
     (void)allow_unkown;
-    return 0;
+    return true;
 }
 
 void Config::parse_global_config(std::string_view const& app_name)
