@@ -4,7 +4,7 @@
 PROJECT_NAME           = "Leitse"
 
 INPUT                  = README.md  \
-                         leitse
+                         leitse config utils
 
 
 # This file describes the settings to be used by the documentation system
