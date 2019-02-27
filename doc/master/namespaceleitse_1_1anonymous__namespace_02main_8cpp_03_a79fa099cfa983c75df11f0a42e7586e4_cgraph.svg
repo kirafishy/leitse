@@ -68,7 +68,7 @@
 <!-- Node6 -->
 <g id="node7" class="node">
 <title>Node6</title>
-<g id="a_node7"><a xlink:href="structconfig_1_1_config.html#a9aabf6fc826255f58721dc3645c5f450" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="structconfig_1_1_config.html#ad127432ebbbbe462f3ca324f673a6d0d" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="#000000" points="514,-.5 514,-19.5 718,-19.5 718,-.5 514,-.5"/>
 <text text-anchor="middle" x="616" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">config::Config::show_help</text>
 </a>
