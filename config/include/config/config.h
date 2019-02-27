@@ -23,13 +23,13 @@ struct Config {
 
     void parse_global_config(std::string_view const& app_name);
     void parse_file(std::string_view const& path, bool allow_unknown = false);
-    void show_help();
+    void show_help(std::string_view const& app_name);
 
     template <typename T>
     T get(std::string const& key) const;
 
 private:
-    std::unordered_map<std::string, std::string> map_;
+    std::unordered_map<std::string, std::string> options_;
 };
 
 

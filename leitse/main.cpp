@@ -11,7 +11,7 @@ void main_impl(int argc, char** argv)
     config::Config conf;
     conf.parse_global_config("leitse");
     if (conf.parse_args(argc, argv)) {
-        conf.show_help();
+        conf.show_help(argv[0]);
         return;
     }
 }
