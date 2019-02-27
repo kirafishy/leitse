@@ -8,8 +8,8 @@ namespace {
 
 void main_impl(int argc, char** argv)
 {
-    config::Config config;
-    config.parse(argc, argv);
+    config::Config cfg;
+    cfg.parse(argc, argv);
 }
 
 int main(int argc, char** argv)
