@@ -28,6 +28,7 @@ Checks: "*  ,\
   -llvm-namespace-comment  ,\
   \
   -readability-braces-around-statements  ,\
+  -readability-else-after-return  ,\
   -readability-implicit-bool-conversion  ,\
 "
 

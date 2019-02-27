@@ -52,8 +52,8 @@ TEST_SUITE("config")
 
         struct S {
             std::string s;
-            S(std::string ss) :
-                s{ss}
+            explicit S(std::string ss) :
+                s{std::move(ss)}
             {}
         };
         cfg["str"] = "hello";
