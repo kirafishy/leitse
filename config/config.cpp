@@ -1,4 +1,6 @@
 #include "config/config.h"
+#include <utils/paths.h>
+#include <filesystem>
 
 namespace config {
 
@@ -33,12 +35,17 @@ void Config::clear()
     map_.clear();
 }
 
-int Config::parse(int argc, char const* const* argv, bool allow_unkown)
+int Config::parse_args(int argc, char const* const* argv, bool allow_unkown)
 {
     (void)argc;
     (void)argv;
     (void)allow_unkown;
     return 0;
+}
+
+void Config::parse_global_config(std::string_view const& app_name)
+{
+    printf("%ls\n", utils::get_kiwixz_home(app_name).c_str());
 }
 
 void Config::parse_file(std::string_view const& path, bool allow_unkown)

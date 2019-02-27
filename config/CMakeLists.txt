@@ -20,6 +20,8 @@ endif ()
 find_package("fmt" CONFIG REQUIRED)
 
 target_link_libraries("${target}"
+    "utils"
+
     "fmt::fmt"
 )
 
