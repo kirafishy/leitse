@@ -21,7 +21,7 @@ struct Config {
     /// Return true if application should show help (all arguments may not be parsed, but you can call again).
     bool parse_args(int& argc, char** argv, bool allow_unknown = false);
 
-    void parse_global_config(std::string_view const& app_name);
+    void parse_global_config(std::string_view const& app_name, bool allow_unknown = false);
     void parse_file(std::string_view const& path, bool allow_unknown = false);
     void parse_file_content(std::string_view const& content, bool allow_unknown = false);
     void show_help(std::string_view const& app_name);
@@ -31,6 +31,8 @@ struct Config {
 
 private:
     std::unordered_map<std::string, std::string> options_;
+
+    void set_parsed_option(std::string key, std::string value, bool allow_unknown);
 };
 
 

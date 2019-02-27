@@ -6,6 +6,12 @@
 #include <vector>
 
 namespace config {
+namespace {
+
+constexpr std::string_view implicit_value = "true";
+
+}
+
 
 std::string& Config::operator[](std::string const& key)
 {
@@ -56,19 +62,10 @@ bool Config::parse_args(int& argc, char** argv, bool allow_unknown)
             std::string key{arg.substr(0, eq)};
             std::string value;
             if (eq == std::string::npos)
-                value = "true";
+                value = implicit_value;
             else
                 value = std::string{arg.substr(eq + 1)};
-
-            auto it = options_.find(key);
-            if (it == options_.end()) {
-                if (allow_unknown)
-                    options_.insert({std::move(key), std::move(value)});
-                else
-                    throw std::runtime_error{fmt::format("unknown option '{}'", key)};
-            }
-            else
-                it->second = std::move(value);
+            set_parsed_option(std::move(key), std::move(value), allow_unknown);
         }
         else if (argv[i][0] == '+') {
             used_args.push_back(i);
@@ -93,11 +90,11 @@ bool Config::parse_args(int& argc, char** argv, bool allow_unknown)
     return false;
 }
 
-void Config::parse_global_config(std::string_view const& app_name)
+void Config::parse_global_config(std::string_view const& app_name, bool allow_unknown)
 {
     auto parse_if_exists = [&](std::filesystem::path const& path) {
         if (std::filesystem::exists(path))
-            parse_file(path.string());
+            parse_file(path.string(), allow_unknown);
     };
 
     constexpr std::string_view file_name = "config.ini";
@@ -120,6 +117,44 @@ void Config::parse_file(std::string_view const& path, bool allow_unknown)
 
 void Config::parse_file_content(std::string_view const& content, bool allow_unknown)
 {
+    char const* ptr = content.data();
+    char const* end = content.data() + content.size();
+    auto is_endline = [&](char const* c) {
+        return c >= end || *c == '\n' || *c == '\r';
+    };
+
+    while (ptr < end) {
+        while (ptr < end && (is_endline(ptr) || *ptr == ' ' || *ptr == '\t'))
+            ++ptr;
+        if (ptr >= end)
+            break;
+
+        if (*ptr == '#') {
+            while (!is_endline(ptr))
+                ++ptr;
+            continue;
+        }
+
+        char const* key_begin = ptr;
+        while (!(is_endline(ptr) || *ptr == '='))
+            ++ptr;
+        char const* key_end = ptr;
+        std::string key{key_begin, key_end};
+
+        std::string value;
+        if (ptr < end && *ptr == '=') {
+            ++ptr;
+            char const* value_begin = ptr;
+            while (!is_endline(ptr))
+                ++ptr;
+            char const* value_end = ptr;
+            value = {value_begin, value_end};
+        }
+        else
+            value = implicit_value;
+
+        set_parsed_option(std::move(key), std::move(value), allow_unknown);
+    }
 }
 
 void Config::show_help(std::string_view const& app_name)
@@ -130,6 +165,19 @@ void Config::show_help(std::string_view const& app_name)
     std::sort(options.begin(), options.end());
     for (std::pair<std::string, std::string> const& option : options)
         fmt::print("{}={}", option.first, option.second);
+}
+
+void Config::set_parsed_option(std::string key, std::string value, bool allow_unknown)
+{
+    auto it = options_.find(key);
+    if (it == options_.end()) {
+        if (allow_unknown)
+            options_.insert({std::move(key), std::move(value)});
+        else
+            throw std::runtime_error{fmt::format("unknown option '{}'", key)};
+    }
+    else
+        it->second = std::move(value);
 }
 
 }  // namespace config
