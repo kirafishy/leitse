@@ -96,8 +96,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a49e2f1c0e5541c0ffa7128c4f8a765f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ee3886968a7eab0af091bfaa98d0c15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a5ee3886968a7eab0af091bfaa98d0c15">clear</a> ()</td></tr>
 <tr class="separator:a5ee3886968a7eab0af091bfaa98d0c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4390a5fcea35e93faf4b47b48785e816"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a4390a5fcea35e93faf4b47b48785e816">parse_args</a> (int argc, char const *const *argv, bool allow_unkown=false)</td></tr>
-<tr class="separator:a4390a5fcea35e93faf4b47b48785e816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe4afd13a1c69c6ef4c15996bb06f959"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#afe4afd13a1c69c6ef4c15996bb06f959">parse_args</a> (int &amp;argc, char const **argv, bool allow_unkown=false)</td></tr>
+<tr class="separator:afe4afd13a1c69c6ef4c15996bb06f959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6482bac83f43652db0483965eb44093d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a6482bac83f43652db0483965eb44093d">parse_global_config</a> (std::string_view const &amp;app_name)</td></tr>
 <tr class="separator:a6482bac83f43652db0483965eb44093d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e427255d58b3312e2941468e640db78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a6e427255d58b3312e2941468e640db78">parse_file</a> (std::string_view const &amp;path, bool allow_unkown=false)</td></tr>
@@ -254,8 +254,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a4390a5fcea35e93faf4b47b48785e816"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4390a5fcea35e93faf4b47b48785e816">&#9670;&nbsp;</a></span>parse_args()</h2>
+<a id="afe4afd13a1c69c6ef4c15996bb06f959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe4afd13a1c69c6ef4c15996bb06f959">&#9670;&nbsp;</a></span>parse_args()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,13 +263,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">int config::Config::parse_args </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">int &amp;&#160;</td>
           <td class="paramname"><em>argc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char const *const *&#160;</td>
+          <td class="paramtype">char const **&#160;</td>
           <td class="paramname"><em>argv</em>, </td>
         </tr>
         <tr>
@@ -285,13 +285,13 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Parse command-line arguments and look for an config file. Return the number of parsed arguments, so you can handle positional arguments. </p>
+<p>Parse command-line arguments (and config file if explicitly given). Will remove parsed arguments. </p>
 
 <p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00037">37</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a4390a5fcea35e93faf4b47b48785e816_icgraph.svg" width="974" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_afe4afd13a1c69c6ef4c15996bb06f959_icgraph.svg" width="974" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -417,7 +417,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 27 2019 17:15:19 for Leitse by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Feb 27 2019 17:25:06 for Leitse by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>
