@@ -20,6 +20,7 @@ endif ()
 
 
 target_link_libraries("${target}_base"
+    "config"
     "utils"
 )
 
