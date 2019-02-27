@@ -82,6 +82,17 @@ TEST_SUITE("config")
         conf["b"] = "b";
         conf["c"] = "c";
         CHECK(parse("-a=1", "-b=2", "-c=3") == 1);
+        CHECK(conf.at("a") == "1");
+        CHECK(conf.at("b") == "2");
+        CHECK(conf.at("c") == "3");
+        CHECK(parse("-a=1", "-b=2", "abc") == 2);
+        CHECK(parse("-a=1", "-b=2") == 1);
+        CHECK_THROWS(parse("-abc"));
+        CHECK_THROWS(parse("-"));
+        CHECK(parse("--help") == -1);
+        CHECK(parse("-a", "--help") == -1);
+        CHECK(conf.at("a") == "true");
+        CHECK(parse("--help", "-a") == -1);
     }
 
     TEST_CASE("parse_args clean argv")
