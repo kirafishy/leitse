@@ -34,7 +34,7 @@ void Config::clear()
     map_.clear();
 }
 
-int Config::parse_args(int argc, char const* const* argv, bool allow_unkown)
+int Config::parse_args(int& argc, char const** argv, bool allow_unkown)
 {
     (void)argc;
     (void)argv;
