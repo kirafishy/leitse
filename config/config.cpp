@@ -2,6 +2,7 @@
 #include <fmt/printf.h>
 #include <utils/paths.h>
 #include <algorithm>
+#include <fstream>
 #include <vector>
 
 namespace config {
@@ -81,8 +82,7 @@ bool Config::parse_args(int& argc, char** argv, bool allow_unknown)
     argc -= static_cast<int>(used_args.size());
     int old_index = used_args[0] + 1;
     int new_index = used_args[0];
-    for (unsigned i = 1; i < used_args.size(); ++i)
-    {
+    for (unsigned i = 1; i < used_args.size(); ++i) {
         for (; old_index < used_args[i]; ++old_index, ++new_index)
             argv[new_index] = argv[old_index];
         ++old_index;
@@ -107,8 +107,19 @@ void Config::parse_global_config(std::string_view const& app_name)
 
 void Config::parse_file(std::string_view const& path, bool allow_unknown)
 {
-    (void)path;
-    (void)allow_unknown;
+    std::ifstream ifs{path, std::ios::ate};
+    if (!ifs)
+        throw std::runtime_error{fmt::format("could not open config file '{}'", path)};
+    std::streamoff size = ifs.tellg();
+    std::string content(size, '\0');
+    ifs.seekg(0, std::ios::beg);
+    ifs.read(content.data(), size);
+    ifs.close();
+    parse_file_content(content, allow_unknown);
+}
+
+void Config::parse_file_content(std::string_view const& content, bool allow_unknown)
+{
 }
 
 void Config::show_help(std::string_view const& app_name)
