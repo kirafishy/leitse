@@ -67,6 +67,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="structconfig_1_1_config-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -98,15 +99,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5ee3886968a7eab0af091bfaa98d0c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d0bbe0e41a086d991fc545cc886212"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#af7d0bbe0e41a086d991fc545cc886212">parse_args</a> (int &amp;argc, char **argv, bool allow_unknown=false)</td></tr>
 <tr class="separator:af7d0bbe0e41a086d991fc545cc886212"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6482bac83f43652db0483965eb44093d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a6482bac83f43652db0483965eb44093d">parse_global_config</a> (std::string_view const &amp;app_name)</td></tr>
-<tr class="separator:a6482bac83f43652db0483965eb44093d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26453f75e7ce4f024b90669e437c10de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a26453f75e7ce4f024b90669e437c10de">parse_global_config</a> (std::string_view const &amp;app_name, bool allow_unknown=false)</td></tr>
+<tr class="separator:a26453f75e7ce4f024b90669e437c10de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eb0be2dcc2b23168834d10674330c5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a8eb0be2dcc2b23168834d10674330c5f">parse_file</a> (std::string_view const &amp;path, bool allow_unknown=false)</td></tr>
 <tr class="separator:a8eb0be2dcc2b23168834d10674330c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11fee93a22eea6fd3be390570f0714a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a11fee93a22eea6fd3be390570f0714a7">parse_file_content</a> (std::string_view const &amp;content, bool allow_unknown=false)</td></tr>
+<tr class="separator:a11fee93a22eea6fd3be390570f0714a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad127432ebbbbe462f3ca324f673a6d0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#ad127432ebbbbe462f3ca324f673a6d0d">show_help</a> (std::string_view const &amp;app_name)</td></tr>
 <tr class="separator:ad127432ebbbbe462f3ca324f673a6d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cf9f3b97d218358b2bd62f3b94a3efb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0cf9f3b97d218358b2bd62f3b94a3efb"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a0cf9f3b97d218358b2bd62f3b94a3efb">get</a> (std::string const &amp;key) const</td></tr>
 <tr class="separator:a0cf9f3b97d218358b2bd62f3b94a3efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae876f154975287de4c120c68061bec1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#ae876f154975287de4c120c68061bec1d">set_parsed_option</a> (std::string key, std::string value, bool allow_unknown)</td></tr>
+<tr class="separator:ae876f154975287de4c120c68061bec1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -133,7 +141,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00014">14</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00021">21</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -159,7 +167,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00019">19</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00026">26</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
@@ -178,7 +186,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00035">35</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00042">42</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
@@ -198,7 +206,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00024">24</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00031">31</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +226,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00029">29</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00036">36</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
@@ -240,7 +248,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00037">37</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00040">40</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -272,7 +280,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00009">9</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00016">16</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,11 +317,11 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Parse command-line arguments (and config file if explicitly given). Parsed arguments will be removed. Return true if application should show help (all arguments may not be parsed, but you can call again). </p>
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00040">40</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00047">47</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_af7d0bbe0e41a086d991fc545cc886212_cgraph.svg" width="624" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_af7d0bbe0e41a086d991fc545cc886212_cgraph.svg" width="1164" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -351,7 +359,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00108">108</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00105">105</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a8eb0be2dcc2b23168834d10674330c5f_cgraph.svg" width="834" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -361,8 +375,50 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a6482bac83f43652db0483965eb44093d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6482bac83f43652db0483965eb44093d">&#9670;&nbsp;</a></span>parse_global_config()</h2>
+<a id="a11fee93a22eea6fd3be390570f0714a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11fee93a22eea6fd3be390570f0714a7">&#9670;&nbsp;</a></span>parse_file_content()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void config::Config::parse_file_content </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view const &amp;&#160;</td>
+          <td class="paramname"><em>content</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allow_unknown</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00118">118</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a11fee93a22eea6fd3be390570f0714a7_cgraph.svg" width="503" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a11fee93a22eea6fd3be390570f0714a7_icgraph.svg" width="1584" height="140"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a26453f75e7ce4f024b90669e437c10de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26453f75e7ce4f024b90669e437c10de">&#9670;&nbsp;</a></span>parse_global_config()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,23 +427,83 @@ Here is the caller graph for this function:</div>
           <td class="memname">void config::Config::parse_global_config </td>
           <td>(</td>
           <td class="paramtype">std::string_view const &amp;&#160;</td>
-          <td class="paramname"><em>app_name</em></td><td>)</td>
+          <td class="paramname"><em>app_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allow_unknown</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00096">96</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00093">93</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a6482bac83f43652db0483965eb44093d_cgraph.svg" width="574" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a26453f75e7ce4f024b90669e437c10de_cgraph.svg" width="1114" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a6482bac83f43652db0483965eb44093d_icgraph.svg" width="923" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a26453f75e7ce4f024b90669e437c10de_icgraph.svg" width="923" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ae876f154975287de4c120c68061bec1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae876f154975287de4c120c68061bec1d">&#9670;&nbsp;</a></span>set_parsed_option()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void config::Config::set_parsed_option </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allow_unknown</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00170">170</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_ae876f154975287de4c120c68061bec1d_icgraph.svg" width="1844" height="150"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -409,7 +525,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00114">114</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00160">160</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -440,7 +556,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00032">32</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00033">33</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
 
 </div>
 </div>
@@ -451,7 +567,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 27 2019 22:21:18 for Leitse by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Feb 27 2019 23:48:43 for Leitse by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

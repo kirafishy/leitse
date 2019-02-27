@@ -1,7 +1,9 @@
 <map id="config::test::TEST_SUITE" name="config::test::TEST_SUITE">
-<area shape="rect" id="node1" title=" " alt="" coords="5,49,208,90"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,74,208,115"/>
 <area shape="rect" id="node2" href="$structconfig_1_1_config.html#a0cf9f3b97d218358b2bd62f3b94a3efb" title=" " alt="" coords="291,5,503,32"/>
-<area shape="rect" id="node3" href="$structconfig_1_1_config.html#a11b209d2f77b2f2753f2d389b575da84" title=" " alt="" coords="627,31,829,57"/>
+<area shape="rect" id="node3" href="$structconfig_1_1_config.html#a11b209d2f77b2f2753f2d389b575da84" title=" " alt="" coords="627,5,829,32"/>
 <area shape="rect" id="node4" href="$structconfig_1_1_config.html#af7d0bbe0e41a086d991fc545cc886212" title=" " alt="" coords="256,107,539,133"/>
-<area shape="rect" id="node5" href="$structconfig_1_1_config.html#a8eb0be2dcc2b23168834d10674330c5f" title=" " alt="" coords="587,107,869,133"/>
+<area shape="rect" id="node7" href="$structconfig_1_1_config.html#a11fee93a22eea6fd3be390570f0714a7" title=" " alt="" coords="917,107,1149,149"/>
+<area shape="rect" id="node5" href="$structconfig_1_1_config.html#ae876f154975287de4c120c68061bec1d" title=" " alt="" coords="1197,78,1409,119"/>
+<area shape="rect" id="node6" href="$structconfig_1_1_config.html#a8eb0be2dcc2b23168834d10674330c5f" title=" " alt="" coords="587,107,869,133"/>
 </map>
