@@ -44,9 +44,7 @@ int Config::parse_args(int argc, char const* const* argv, bool allow_unkown)
 }
 
 void Config::parse_global_config(std::string_view const& app_name)
-{
-    printf("%s\n", utils::get_kiwixz_home(app_name).string().c_str());
-}
+{}
 
 void Config::parse_file(std::string_view const& path, bool allow_unkown)
 {

@@ -7,6 +7,7 @@
 #else
 #    include <pwd.h>
 #    include <unistd.h>
+#    include <vector>
 #endif
 
 namespace utils {
