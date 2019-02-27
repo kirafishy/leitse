@@ -17,11 +17,12 @@ struct Config {
 
     /// Parse command-line arguments (and config file if explicitly given).
     /// Parsed arguments will be removed.
-    /// Return false if application should exit.
-    bool parse_args(int& argc, char const** argv, bool allow_unkown = false);
+    /// Return true if application should show help (all arguments may not be parsed, but you can call again).
+    bool parse_args(int& argc, char** argv, bool allow_unkown = false);
 
     void parse_global_config(std::string_view const& app_name);
     void parse_file(std::string_view const& path, bool allow_unkown = false);
+    void show_help();
 
     template <typename T>
     T get(std::string const& key) const;

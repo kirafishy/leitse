@@ -10,7 +10,10 @@ void main_impl(int argc, char** argv)
 {
     config::Config conf;
     conf.parse_global_config("leitse");
-    conf.parse_args(argc, argv);
+    if (conf.parse_args(argc, argv)) {
+        conf.show_help();
+        return;
+    }
 }
 
 int main(int argc, char** argv)

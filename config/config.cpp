@@ -1,5 +1,8 @@
 #include "config/config.h"
+#include <fmt/printf.h>
 #include <utils/paths.h>
+#include <stack>
+#include <vector>
 
 namespace config {
 
@@ -34,12 +37,23 @@ void Config::clear()
     map_.clear();
 }
 
-bool Config::parse_args(int& argc, char const** argv, bool allow_unkown)
+bool Config::parse_args(int& argc, char** argv, bool allow_unkown)
 {
+    constexpr std::string_view help_string = "-help";
+
+    std::vector<int> used_args_cont;
+    used_args_cont.reserve(argc - 1);
+    std::stack used_args{std::move(used_args_cont)};
+
+    for (int i = 1; i < argc; ++i) {
+        if (argv[i] == help_string)
+            return true;
+    }
+
     (void)argc;
     (void)argv;
     (void)allow_unkown;
-    return true;
+    return false;
 }
 
 void Config::parse_global_config(std::string_view const& app_name)
@@ -59,6 +73,11 @@ void Config::parse_file(std::string_view const& path, bool allow_unkown)
 {
     (void)path;
     (void)allow_unkown;
+}
+
+void Config::show_help()
+{
+    fmt::print("help\n");
 }
 
 }  // namespace config
