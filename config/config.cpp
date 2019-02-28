@@ -73,7 +73,7 @@ bool Config::parse_args(int& argc, char** argv, bool allow_unknown)
         }
     }
 
-    if (used_args.size() == 0)
+    if (used_args.empty())
         return false;
 
     argc -= static_cast<int>(used_args.size());
