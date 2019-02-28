@@ -153,6 +153,16 @@ TEST_SUITE("config")
         CHECK_THROWS(conf.parse_file_content("c"));
         conf.parse_file_content("c", true);
         CHECK(conf.at("c") == "true");
+
+        conf["s.n"] = "s.n";
+        CHECK_THROWS(conf.parse_file_content("s=x"));
+        conf.parse_file_content("s.n=n");
+        CHECK(conf.at("s.n") == "n");
+        conf.parse_file_content("[s]     \nn=0");
+        CHECK(conf.at("s.n") == "0");
+        CHECK_THROWS(conf.parse_file_content("[s.s2]n=0"));
+        conf.parse_file_content("[s.s2]n=0", true);
+        CHECK(conf.at("s.s2.n") == "0");
     }
 }
 

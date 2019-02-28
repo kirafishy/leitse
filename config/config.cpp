@@ -123,6 +123,7 @@ void Config::parse_file_content(std::string_view const& content, bool allow_unkn
         return c >= end || *c == '\n' || *c == '\r';
     };
 
+    std::string prefix;
     while (ptr < end) {
         while (ptr < end && (is_endline(ptr) || *ptr == ' ' || *ptr == '\t'))
             ++ptr;
@@ -132,6 +133,20 @@ void Config::parse_file_content(std::string_view const& content, bool allow_unkn
         if (*ptr == '#') {
             while (!is_endline(ptr))
                 ++ptr;
+            continue;
+        }
+        else if (*ptr == '[') {
+            ++ptr;
+            char const* section_begin = ptr;
+            while (!(is_endline(ptr) || *ptr == ']'))
+                ++ptr;
+            if (ptr >= end)
+                break;
+            char const* section_end = ptr;
+            prefix = {section_begin, section_end};
+            if (!prefix.empty())
+                prefix += '.';
+            ++ptr;
             continue;
         }
 
@@ -153,7 +168,7 @@ void Config::parse_file_content(std::string_view const& content, bool allow_unkn
         else
             value = implicit_value;
 
-        set_parsed_option(std::move(key), std::move(value), allow_unknown);
+        set_parsed_option(prefix + std::move(key), std::move(value), allow_unknown);
     }
 }
 
