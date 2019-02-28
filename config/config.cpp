@@ -104,7 +104,7 @@ void Config::parse_global_config(std::string_view const& app_name, bool allow_un
 
 void Config::parse_file(std::string_view const& path, bool allow_unknown)
 {
-    std::ifstream ifs{path, std::ios::ate};
+    std::ifstream ifs{path.data(), std::ios::ate};
     if (!ifs)
         throw std::runtime_error{fmt::format("could not open config file '{}'", path)};
     std::streamoff size = ifs.tellg();
