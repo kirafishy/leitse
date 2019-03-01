@@ -1,14 +1,25 @@
+#include "ugg.h"
 #include <config/config.h>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <filesystem>
+#include <thread>
+#include <vector>
 
 namespace leitse {
 namespace {
 
 void main_impl(int argc, char** argv)
 {
+    std::vector<std::unique_ptr<Aggregator>> aggregators;
+    aggregators.push_back(std::make_unique<aggregators::Ugg>());
+
     config::Config conf;
+    conf.set("threads", 2 * std::thread::hardware_concurrency());
+    for (std::unique_ptr<Aggregator> const& aggregator : aggregators)
+        for (std::pair<std::string, std::string> const& option : aggregator->get_options())
+            conf.set(option.first, option.second);
+
     conf.parse_global_config("leitse");
     if (conf.parse_args(argc, argv)) {
         conf.show_help(argv[0]);
