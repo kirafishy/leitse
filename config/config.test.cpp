@@ -12,33 +12,38 @@ TEST_SUITE("config")
     {
         Config conf;
 
-        conf.set("bool", "false");
+        conf.set("bool", false);
         CHECK(!conf.get<bool>("bool"));
-        conf.set("bool", "0");
+        conf.set("bool", 0);
         CHECK(!conf.get<bool>("bool"));
-        conf.set("bool", "true");
+        conf.set("bool", true);
         CHECK(conf.get<bool>("bool"));
-        conf.set("bool", "1");
+        conf.set("bool", 1);
         CHECK(conf.get<bool>("bool"));
-        conf.set("bool", "2");
+        conf.set("bool", 2);
         CHECK_THROWS(conf.get<bool>("bool"));
 
-        conf.set("char", "-42");
+        conf.set("char", -42);
         CHECK(conf.get<char>("char") == -42);
-        conf.set("short", "-42");
+        conf.set("short", -42);
         CHECK(conf.get<short>("short") == -42);
-        conf.set("int", "-42");
+        conf.set("int", -42);
         CHECK(conf.get<int>("int") == -42);
-        conf.set("long long", "-42");
+        conf.set("long long", -42ll);
         CHECK(conf.get<long long>("long long") == -42);
-        conf.set("unsigned char", "42");
-        CHECK(conf.get<unsigned char>("unsigned char") == 42);
-        conf.set("unsigned short", "42");
-        CHECK(conf.get<unsigned short>("unsigned short") == 42);
-        conf.set("unsigned int", "42");
+        conf.set("unsigned char", 42u);
+        CHECK(conf.get<unsigned char>("unsigned char") == 42u);
+        conf.set("unsigned short", 42u);
+        CHECK(conf.get<unsigned short>("unsigned short") == 42u);
+        conf.set("unsigned int", 42u);
         CHECK(conf.get<unsigned int>("unsigned int") == 42u);
-        conf.set("unsigned long long", "42");
+        conf.set("unsigned long long", 42ull);
         CHECK(conf.get<unsigned long long>("unsigned long long") == 42ull);
+        conf.set("float", -.42);
+        CHECK(conf.get<float>("float") == -.42f);
+        conf.set("double", 42.);
+        CHECK(conf.get<double>("double") == 42.);
+
         conf.set("float", "-.42");
         CHECK(conf.get<float>("float") == -.42f);
         conf.set("double", "42.");

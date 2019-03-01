@@ -23,11 +23,6 @@ std::string const& Config::get_raw(std::string const& key) const
     return options_.at(key);
 }
 
-void Config::set(std::string key, std::string value)
-{
-    options_.insert_or_assign(std::move(key), std::move(value));
-}
-
 void Config::remove(std::string const& key)
 {
     if (options_.erase(key) == 0)

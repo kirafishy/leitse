@@ -12,7 +12,6 @@ struct Config {
     bool contains(std::string const& key) const;
     std::string const& get_raw(std::string const& key) const;
 
-    void set(std::string key, std::string value);
     void remove(std::string const& key);
     void clear();
 
@@ -29,6 +28,9 @@ struct Config {
 
     template <typename T>
     T get(std::string const& key) const;
+
+    template <typename T>
+    void set(std::string key, T&& value);
 
 private:
     std::unordered_map<std::string, std::string> options_;
@@ -70,6 +72,17 @@ T Config::get(std::string const& key) const
     }
     else
         return T{value};
+}
+
+template <typename T>
+void Config::set(std::string key, T&& value)
+{
+    if constexpr (std::is_same_v<T, bool>)
+        return set(std::move(key), value ? "true" : "false");
+    else if constexpr (std::is_arithmetic_v<T>)
+        return set(std::move(key), std::to_string(value));
+    else
+        options_.insert_or_assign(std::move(key), std::forward<T>(value));
 }
 
 }  // namespace config
