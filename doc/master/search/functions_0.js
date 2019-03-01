@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bind_5ffront',['bind_front',['../namespaceutils.html#ac5501208b03eda054499279172bc1e9b',1,'utils::bind_front(T &amp;&amp;callable, Args &amp;&amp;... args)'],['../namespaceutils.html#a8495995f058cf7ab4ca134e12c60065f',1,'utils::bind_front(Function &amp;&amp;callable, Args &amp;&amp;... args)']]]
+  ['aggregator',['Aggregator',['../structleitse_1_1_aggregator.html#a30db9064f036eee5e988079f5e6b62c2',1,'leitse::Aggregator']]]
 ];

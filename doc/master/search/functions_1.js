@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['clear',['clear',['../structconfig_1_1_config.html#a5ee3886968a7eab0af091bfaa98d0c15',1,'config::Config']]],
-  ['contains',['contains',['../structconfig_1_1_config.html#ab6d71401de5fd10dd219ae8fedf5f2e2',1,'config::Config']]]
+  ['bind_5ffront',['bind_front',['../namespaceutils.html#ac5501208b03eda054499279172bc1e9b',1,'utils::bind_front(T &amp;&amp;callable, Args &amp;&amp;... args)'],['../namespaceutils.html#a8495995f058cf7ab4ca134e12c60065f',1,'utils::bind_front(Function &amp;&amp;callable, Args &amp;&amp;... args)']]]
 ];
