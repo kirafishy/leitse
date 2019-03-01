@@ -85,16 +85,12 @@ Collaboration diagram for config::Config:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a16d496cf1ed8691892742d175b98941e"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a16d496cf1ed8691892742d175b98941e">operator[]</a> (std::string const &amp;key)</td></tr>
-<tr class="separator:a16d496cf1ed8691892742d175b98941e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11b209d2f77b2f2753f2d389b575da84"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a11b209d2f77b2f2753f2d389b575da84">at</a> (std::string const &amp;key)</td></tr>
-<tr class="separator:a11b209d2f77b2f2753f2d389b575da84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c8f690d33502e56c36de07560bf2bbe"><td class="memItemLeft" align="right" valign="top">std::string const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a3c8f690d33502e56c36de07560bf2bbe">at</a> (std::string const &amp;key) const</td></tr>
-<tr class="separator:a3c8f690d33502e56c36de07560bf2bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01691116cdd3c16ac60a63457d7bcbbf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a01691116cdd3c16ac60a63457d7bcbbf">contains</a> (std::string const &amp;key)</td></tr>
-<tr class="separator:a01691116cdd3c16ac60a63457d7bcbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8af0d1d8a19422edf59470b7f06ec825"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a8af0d1d8a19422edf59470b7f06ec825">erase</a> (std::string const &amp;key)</td></tr>
-<tr class="separator:a8af0d1d8a19422edf59470b7f06ec825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6d71401de5fd10dd219ae8fedf5f2e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#ab6d71401de5fd10dd219ae8fedf5f2e2">contains</a> (std::string const &amp;key) const</td></tr>
+<tr class="separator:ab6d71401de5fd10dd219ae8fedf5f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab957d0cdfdedba7a80d5459bb72d6f08"><td class="memItemLeft" align="right" valign="top">std::string const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#ab957d0cdfdedba7a80d5459bb72d6f08">get_raw</a> (std::string const &amp;key) const</td></tr>
+<tr class="separator:ab957d0cdfdedba7a80d5459bb72d6f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e2f1c0e5541c0ffa7128c4f8a765f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a49e2f1c0e5541c0ffa7128c4f8a765f1">remove</a> (std::string const &amp;key)</td></tr>
+<tr class="separator:a49e2f1c0e5541c0ffa7128c4f8a765f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ee3886968a7eab0af091bfaa98d0c15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a5ee3886968a7eab0af091bfaa98d0c15">clear</a> ()</td></tr>
 <tr class="separator:a5ee3886968a7eab0af091bfaa98d0c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d0bbe0e41a086d991fc545cc886212"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#af7d0bbe0e41a086d991fc545cc886212">parse_args</a> (int &amp;argc, char **argv, bool allow_unknown=false)</td></tr>
@@ -105,11 +101,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8eb0be2dcc2b23168834d10674330c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11fee93a22eea6fd3be390570f0714a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a11fee93a22eea6fd3be390570f0714a7">parse_file_content</a> (std::string_view const &amp;content, bool allow_unknown=false)</td></tr>
 <tr class="separator:a11fee93a22eea6fd3be390570f0714a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad127432ebbbbe462f3ca324f673a6d0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#ad127432ebbbbe462f3ca324f673a6d0d">show_help</a> (std::string_view const &amp;app_name)</td></tr>
-<tr class="separator:ad127432ebbbbe462f3ca324f673a6d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d7920c2d4ab70b3fbee60b31a5df5d9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a6d7920c2d4ab70b3fbee60b31a5df5d9">dump</a> (std::string_view const &amp;prefix) const</td></tr>
+<tr class="separator:a6d7920c2d4ab70b3fbee60b31a5df5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abca32af5b3cfdb1f9eabec454e1e354e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#abca32af5b3cfdb1f9eabec454e1e354e">show_help</a> (std::string_view const &amp;app_name) const</td></tr>
+<tr class="separator:abca32af5b3cfdb1f9eabec454e1e354e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cf9f3b97d218358b2bd62f3b94a3efb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0cf9f3b97d218358b2bd62f3b94a3efb"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a0cf9f3b97d218358b2bd62f3b94a3efb">get</a> (std::string const &amp;key) const</td></tr>
 <tr class="separator:a0cf9f3b97d218358b2bd62f3b94a3efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d05ea9c3f473081105aadb66124f42e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a8d05ea9c3f473081105aadb66124f42e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structconfig_1_1_config.html#a8d05ea9c3f473081105aadb66124f42e">set</a> (std::string key, T &amp;&amp;value)</td></tr>
+<tr class="separator:a8d05ea9c3f473081105aadb66124f42e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -125,52 +126,6 @@ Private Attributes</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00011">11</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a11b209d2f77b2f2753f2d389b575da84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11b209d2f77b2f2753f2d389b575da84">&#9670;&nbsp;</a></span>at() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string &amp; config::Config::at </td>
-          <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00021">21</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a11b209d2f77b2f2753f2d389b575da84_icgraph.svg" width="724" height="71"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a3c8f690d33502e56c36de07560bf2bbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c8f690d33502e56c36de07560bf2bbe">&#9670;&nbsp;</a></span>at() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string const  &amp; config::Config::at </td>
-          <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00026">26</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
-
-</div>
-</div>
 <a id="a5ee3886968a7eab0af091bfaa98d0c15"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ee3886968a7eab0af091bfaa98d0c15">&#9670;&nbsp;</a></span>clear()</h2>
 
@@ -186,12 +141,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00042">42</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00032">32</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a01691116cdd3c16ac60a63457d7bcbbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01691116cdd3c16ac60a63457d7bcbbf">&#9670;&nbsp;</a></span>contains()</h2>
+<a id="ab6d71401de5fd10dd219ae8fedf5f2e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d71401de5fd10dd219ae8fedf5f2e2">&#9670;&nbsp;</a></span>contains()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,32 +156,38 @@ Here is the caller graph for this function:</div>
           <td>(</td>
           <td class="paramtype">std::string const &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00031">31</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00016">16</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a8af0d1d8a19422edf59470b7f06ec825"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8af0d1d8a19422edf59470b7f06ec825">&#9670;&nbsp;</a></span>erase()</h2>
+<a id="a6d7920c2d4ab70b3fbee60b31a5df5d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d7920c2d4ab70b3fbee60b31a5df5d9">&#9670;&nbsp;</a></span>dump()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void config::Config::erase </td>
+          <td class="memname">std::string config::Config::dump </td>
           <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">std::string_view const &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00036">36</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00165">165</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a6d7920c2d4ab70b3fbee60b31a5df5d9_icgraph.svg" width="1234" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -248,11 +209,11 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00040">40</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00043">43</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a0cf9f3b97d218358b2bd62f3b94a3efb_cgraph.svg" width="474" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a0cf9f3b97d218358b2bd62f3b94a3efb_cgraph.svg" width="523" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -264,23 +225,29 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a16d496cf1ed8691892742d175b98941e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16d496cf1ed8691892742d175b98941e">&#9670;&nbsp;</a></span>operator[]()</h2>
+<a id="ab957d0cdfdedba7a80d5459bb72d6f08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab957d0cdfdedba7a80d5459bb72d6f08">&#9670;&nbsp;</a></span>get_raw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string &amp; config::Config::operator[] </td>
+          <td class="memname">std::string const  &amp; config::Config::get_raw </td>
           <td>(</td>
           <td class="paramtype">std::string const &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00016">16</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00021">21</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_ab957d0cdfdedba7a80d5459bb72d6f08_icgraph.svg" width="774" height="71"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -317,7 +284,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Parse command-line arguments (and config file if explicitly given). Parsed arguments will be removed. Return true if application should show help (all arguments may not be parsed, but you can call again). </p>
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00047">47</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00037">37</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -359,7 +326,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00105">105</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00095">95</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -401,7 +368,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00118">118</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00108">108</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -443,7 +410,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00093">93</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00083">83</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -454,6 +421,64 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a26453f75e7ce4f024b90669e437c10de_icgraph.svg" width="923" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a49e2f1c0e5541c0ffa7128c4f8a765f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e2f1c0e5541c0ffa7128c4f8a765f1">&#9670;&nbsp;</a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void config::Config::remove </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00026">26</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8d05ea9c3f473081105aadb66124f42e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d05ea9c3f473081105aadb66124f42e">&#9670;&nbsp;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void config::Config::set </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00078">78</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_a8d05ea9c3f473081105aadb66124f42e_icgraph.svg" width="903" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -499,7 +524,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00185">185</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00181">181</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -509,8 +534,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad127432ebbbbe462f3ca324f673a6d0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad127432ebbbbe462f3ca324f673a6d0d">&#9670;&nbsp;</a></span>show_help()</h2>
+<a id="abca32af5b3cfdb1f9eabec454e1e354e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abca32af5b3cfdb1f9eabec454e1e354e">&#9670;&nbsp;</a></span>show_help()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -520,16 +545,22 @@ Here is the caller graph for this function:</div>
           <td>(</td>
           <td class="paramtype">std::string_view const &amp;&#160;</td>
           <td class="paramname"><em>app_name</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="config_8cpp_source.html#l00175">175</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_abca32af5b3cfdb1f9eabec454e1e354e_cgraph.svg" width="554" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_ad127432ebbbbe462f3ca324f673a6d0d_icgraph.svg" width="963" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structconfig_1_1_config_abca32af5b3cfdb1f9eabec454e1e354e_icgraph.svg" width="963" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -556,7 +587,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00033">33</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="config_8h_source.html#l00036">36</a> of file <a class="el" href="config_8h_source.html">config.h</a>.</p>
 
 </div>
 </div>
@@ -567,7 +598,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 28 2019 12:55:18 for Leitse by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 1 2019 18:57:05 for Leitse by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

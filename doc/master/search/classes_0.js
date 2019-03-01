@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['config',['Config',['../structconfig_1_1_config.html',1,'config']]]
+  ['aggregator',['Aggregator',['../structleitse_1_1_aggregator.html',1,'leitse']]]
 ];

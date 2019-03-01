@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['scopeexit',['ScopeExit',['../structutils_1_1_scope_exit.html',1,'utils']]],
-  ['sharedcallable',['SharedCallable',['../structutils_1_1_thread_pool_1_1_shared_callable.html',1,'utils::ThreadPool']]]
+  ['champion',['Champion',['../structleitse_1_1_champion.html',1,'leitse']]],
+  ['config',['Config',['../structconfig_1_1_config.html',1,'config']]]
 ];

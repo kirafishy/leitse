@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['at',['at',['../structconfig_1_1_config.html#a11b209d2f77b2f2753f2d389b575da84',1,'config::Config::at(std::string const &amp;key)'],['../structconfig_1_1_config.html#a3c8f690d33502e56c36de07560bf2bbe',1,'config::Config::at(std::string const &amp;key) const']]]
+  ['bind_5ffront',['bind_front',['../namespaceutils.html#ac5501208b03eda054499279172bc1e9b',1,'utils::bind_front(T &amp;&amp;callable, Args &amp;&amp;... args)'],['../namespaceutils.html#a8495995f058cf7ab4ca134e12c60065f',1,'utils::bind_front(Function &amp;&amp;callable, Args &amp;&amp;... args)']]]
 ];

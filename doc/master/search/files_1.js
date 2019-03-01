@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['config_2ecpp',['config.cpp',['../config_8cpp.html',1,'']]],
-  ['config_2eh',['config.h',['../config_8h.html',1,'']]],
-  ['config_2etest_2ecpp',['config.test.cpp',['../config_8test_8cpp.html',1,'']]]
+  ['bind_5ffront_2eh',['bind_front.h',['../bind__front_8h.html',1,'']]]
 ];
