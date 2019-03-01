@@ -24,7 +24,8 @@ struct Config {
     void parse_global_config(std::string_view const& app_name, bool allow_unknown = false);
     void parse_file(std::string_view const& path, bool allow_unknown = false);
     void parse_file_content(std::string_view const& content, bool allow_unknown = false);
-    void show_help(std::string_view const& app_name);
+    std::string dump(std::string_view const& prefix) const;
+    void show_help(std::string_view const& app_name) const;
 
     template <typename T>
     T get(std::string const& key) const;

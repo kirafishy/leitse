@@ -167,14 +167,20 @@ void Config::parse_file_content(std::string_view const& content, bool allow_unkn
     }
 }
 
-void Config::show_help(std::string_view const& app_name)
+std::string Config::dump(std::string_view const& prefix) const
 {
-    fmt::print("Usage: {} [--help] [+config_file] [options] [--] [positional arguments]\n", app_name);
-    fmt::print("Current options and their default values:\n");
     std::vector<std::pair<std::string, std::string>> options(options_.begin(), options_.end());
     std::sort(options.begin(), options.end());
+    std::string output;
     for (std::pair<std::string, std::string> const& option : options)
-        fmt::print("{}={}", option.first, option.second);
+        output += fmt::format("{}{}={}\n", prefix, option.first, option.second);
+    return output;
+}
+
+void Config::show_help(std::string_view const& app_name) const
+{
+    fmt::print("Usage: {} [--help] [+config_file] [-option...] [--] [positional arguments]\n", app_name);
+    fmt::print("Options and their default values:\n{}", dump("\t"));
 }
 
 void Config::set_parsed_option(std::string key, std::string value, bool allow_unknown)
