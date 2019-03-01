@@ -13,27 +13,22 @@ constexpr std::string_view implicit_value = "true";
 }
 
 
-std::string& Config::operator[](std::string const& key)
-{
-    return options_[key];
-}
-
-std::string& Config::at(std::string const& key)
-{
-    return options_.at(key);
-}
-
-std::string const& Config::at(std::string const& key) const
-{
-    return options_.at(key);
-}
-
-bool Config::contains(std::string const& key)
+bool Config::contains(std::string const& key) const
 {
     return options_.count(key) > 0;
 }
 
-void Config::erase(std::string const& key)
+std::string const& Config::get_raw(std::string const& key) const
+{
+    return options_.at(key);
+}
+
+void Config::set(std::string key, std::string value)
+{
+    options_.insert_or_assign(std::move(key), std::move(value));
+}
+
+void Config::remove(std::string const& key)
 {
     if (options_.erase(key) == 0)
         throw std::runtime_error{"key not present"};

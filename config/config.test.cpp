@@ -12,54 +12,54 @@ TEST_SUITE("config")
     {
         Config conf;
 
-        conf["bool"] = "false";
+        conf.set("bool", "false");
         CHECK(!conf.get<bool>("bool"));
-        conf["bool"] = "0";
+        conf.set("bool", "0");
         CHECK(!conf.get<bool>("bool"));
-        conf["bool"] = "true";
+        conf.set("bool", "true");
         CHECK(conf.get<bool>("bool"));
-        conf["bool"] = "1";
+        conf.set("bool", "1");
         CHECK(conf.get<bool>("bool"));
-        conf["bool"] = "2";
+        conf.set("bool", "2");
         CHECK_THROWS(conf.get<bool>("bool"));
 
-        conf["char"] = "-42";
+        conf.set("char", "-42");
         CHECK(conf.get<char>("char") == -42);
-        conf["short"] = "-42";
+        conf.set("short", "-42");
         CHECK(conf.get<short>("short") == -42);
-        conf["int"] = "-42";
+        conf.set("int", "-42");
         CHECK(conf.get<int>("int") == -42);
-        conf["long long"] = "-42";
+        conf.set("long long", "-42");
         CHECK(conf.get<long long>("long long") == -42);
-        conf["unsigned char"] = "42";
+        conf.set("unsigned char", "42");
         CHECK(conf.get<unsigned char>("unsigned char") == 42);
-        conf["unsigned short"] = "42";
+        conf.set("unsigned short", "42");
         CHECK(conf.get<unsigned short>("unsigned short") == 42);
-        conf["unsigned int"] = "42";
+        conf.set("unsigned int", "42");
         CHECK(conf.get<unsigned int>("unsigned int") == 42u);
-        conf["unsigned long long"] = "42";
+        conf.set("unsigned long long", "42");
         CHECK(conf.get<unsigned long long>("unsigned long long") == 42ull);
-        conf["float"] = "-.42";
+        conf.set("float", "-.42");
         CHECK(conf.get<float>("float") == -.42f);
-        conf["double"] = "42.";
+        conf.set("double", "42.");
         CHECK(conf.get<double>("double") == 42.);
 
-        conf["bad"] = "42a";
+        conf.set("bad", "42a");
         CHECK_THROWS(conf.get<int>("bad"));
         CHECK_THROWS(conf.get<float>("bad"));
-        conf["bad"] = "a42";
+        conf.set("bad", "a42");
         CHECK_THROWS(conf.get<int>("bad"));
         CHECK_THROWS(conf.get<float>("bad"));
-        conf["bad"] = "42-";
+        conf.set("bad", "42-");
         CHECK_THROWS(conf.get<int>("bad"));
         CHECK_THROWS(conf.get<float>("bad"));
-        conf["bad"] = "42+";
+        conf.set("bad", "42+");
         CHECK_THROWS(conf.get<int>("bad"));
         CHECK_THROWS(conf.get<float>("bad"));
-        conf["bad"] = "abc";
+        conf.set("bad", "abc");
         CHECK_THROWS(conf.get<int>("bad"));
         CHECK_THROWS(conf.get<float>("bad"));
-        conf["bad"] = "";
+        conf.set("bad", "");
         CHECK_THROWS(conf.get<int>("bad"));
         CHECK_THROWS(conf.get<float>("bad"));
 
@@ -69,8 +69,8 @@ TEST_SUITE("config")
                 s{std::move(ss)}
             {}
         };
-        conf["str"] = "hello";
-        CHECK(conf.get<S>("str").s == conf.at("str"));
+        conf.set("str", "hello");
+        CHECK(conf.get<S>("str").s == conf.get_raw("str"));
     }
 
     TEST_CASE("parse_args")
@@ -90,26 +90,26 @@ TEST_SUITE("config")
             return argc;
         };
 
-        conf["a"] = "a";
-        conf["b"] = "b";
-        conf["c"] = "c";
+        conf.set("a", "a");
+        conf.set("b", "b");
+        conf.set("c", "c");
 
         CHECK(parse("-a=1", "-b=2", "-c=3") == 1);
-        CHECK(conf.at("a") == "1");
-        CHECK(conf.at("b") == "2");
-        CHECK(conf.at("c") == "3");
+        CHECK(conf.get_raw("a") == "1");
+        CHECK(conf.get_raw("b") == "2");
+        CHECK(conf.get_raw("c") == "3");
         CHECK(parse("-a=1", "-b=2", "abc") == 2);
         CHECK(parse("-a=1", "-b=2") == 1);
         CHECK(parse("--help") == -1);
         CHECK(parse("-a", "--help") == -1);
-        CHECK(conf.at("a") == "true");
+        CHECK(conf.get_raw("a") == "true");
         CHECK(parse("--help", "-a") == -1);
 
         CHECK_THROWS(parse("-abc"));
         CHECK_THROWS(parse("-"));
         allow_unknown = true;
         CHECK(parse("-0=YES") == 1);
-        CHECK(conf.at("0") == "YES");
+        CHECK(conf.get_raw("0") == "YES");
     }
 
     TEST_CASE("parse_args clean argv")
@@ -128,8 +128,8 @@ TEST_SUITE("config")
             return argv;
         };
 
-        conf["a"] = "a";
-        conf["b"] = "b";
+        conf.set("a", "a");
+        conf.set("b", "b");
         auto argv = parse("-a=1", "first", "-b=2", "second", "--", "-third");
         CHECK(argv[0] == std::string{"self"});
         CHECK(argv[1] == std::string{"first"});
@@ -142,27 +142,27 @@ TEST_SUITE("config")
     {
         Config conf;
 
-        conf["a"] = "a";
-        conf["b"] = "b";
+        conf.set("a", "a");
+        conf.set("b", "b");
         conf.parse_file_content("a=1\nb=2");
-        CHECK(conf.at("a") == "1");
-        CHECK(conf.at("b") == "2");
+        CHECK(conf.get_raw("a") == "1");
+        CHECK(conf.get_raw("b") == "2");
         conf.parse_file_content("a=3\n\n\n       # comment\n\n       \t  \t   b=4\r\n");
-        CHECK(conf.at("a") == "3");
-        CHECK(conf.at("b") == "4");
+        CHECK(conf.get_raw("a") == "3");
+        CHECK(conf.get_raw("b") == "4");
         CHECK_THROWS(conf.parse_file_content("c"));
         conf.parse_file_content("c", true);
-        CHECK(conf.at("c") == "true");
+        CHECK(conf.get_raw("c") == "true");
 
-        conf["s.n"] = "s.n";
+        conf.set("s.n", "s.n");
         CHECK_THROWS(conf.parse_file_content("s=x"));
         conf.parse_file_content("s.n=n");
-        CHECK(conf.at("s.n") == "n");
+        CHECK(conf.get_raw("s.n") == "n");
         conf.parse_file_content("[s]     \nn=0");
-        CHECK(conf.at("s.n") == "0");
+        CHECK(conf.get_raw("s.n") == "0");
         CHECK_THROWS(conf.parse_file_content("[s.s2]n=0"));
         conf.parse_file_content("[s.s2]n=0", true);
-        CHECK(conf.at("s.s2.n") == "0");
+        CHECK(conf.get_raw("s.s2.n") == "0");
     }
 }
 

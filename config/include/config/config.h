@@ -9,11 +9,11 @@
 namespace config {
 
 struct Config {
-    std::string& operator[](std::string const& key);
-    std::string& at(std::string const& key);
-    std::string const& at(std::string const& key) const;
-    bool contains(std::string const& key);
-    void erase(std::string const& key);
+    bool contains(std::string const& key) const;
+    std::string const& get_raw(std::string const& key) const;
+
+    void set(std::string key, std::string value);
+    void remove(std::string const& key);
     void clear();
 
     /// Parse command-line arguments (and config file if explicitly given).
@@ -39,7 +39,7 @@ private:
 template <typename T>
 T Config::get(std::string const& key) const
 {
-    std::string const& value = at(key);
+    std::string const& value = get_raw(key);
     if constexpr (std::is_same_v<T, bool>) {
         if (value == "true" || value == "1")
             return true;
