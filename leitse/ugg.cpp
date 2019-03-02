@@ -1,6 +1,7 @@
 #include "ugg.h"
 #include <cpr/cpr.h>
 #include <fmt/format.h>
+#include <algorithm>
 #include <array>
 #include <set>
 
@@ -110,8 +111,7 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
         };
 
         auto add_items_to_block = [&](ItemSet::Block& block,
-                                      nlohmann::json const& data_block,
-                                      bool add_candidates = true) {
+                                      nlohmann::json const& data_block) {
             int total_matches = 0;
 
             for (nlohmann::json const& data_candidate : data_block) {
@@ -132,12 +132,11 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
                 }
             }
 
-            if (add_candidates)
-                while (!item_candidates.empty()) {
-                    ItemCandidate item = item_candidates.extract(item_candidates.begin()).value();
-                    block.items.push_back({item.id, std::max(100 * item.matches / total_matches, 1)});
-                    added_items.insert(item.id);
-                }
+            while (!item_candidates.empty()) {
+                ItemCandidate item = item_candidates.extract(item_candidates.begin()).value();
+                block.items.push_back({item.id, std::max(100 * item.matches / total_matches, 1)});
+                added_items.insert(item.id);
+            }
         };
 
         ItemSet::Block* block = &item_set.blocks.emplace_back();
@@ -155,9 +154,12 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
 
         block = &item_set.blocks.emplace_back();
         block->name = "Other items";
-        add_items_to_block(*block, data_role.at(4), false);
-        add_items_to_block(*block, data_role.at(5), false);
+        add_items_to_block(*block, data_role.at(4));
+        add_items_to_block(*block, data_role.at(5));
         add_items_to_block(*block, data_role.at(6));
+        std::sort(block->items.begin(), block->items.end(), [](ItemSet::Item const& lhs, ItemSet::Item const& rhs) {
+            return lhs.count > rhs.count;
+        });
 
         item_set.blocks.push_back(miscellaneous_block);
 
