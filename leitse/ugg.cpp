@@ -5,10 +5,56 @@
 #include <set>
 
 namespace leitse::aggregators {
+namespace {
+
+struct ItemCandidate {
+    int id;
+    int wins;
+    int matches;
+};
+
+
+bool operator<(ItemCandidate const& lhs, ItemCandidate const& rhs)  // sort most interesting items first
+{
+    if (lhs.matches != rhs.matches)
+        return lhs.matches > rhs.matches;
+    if (lhs.wins != rhs.wins)
+        return lhs.wins > rhs.wins;
+    return lhs.id > rhs.id;
+}
+
+
+struct ItemCandidateComparator {
+    using is_transparent = std::true_type;
+
+    bool operator()(ItemCandidate const& lhs, ItemCandidate const& rhs) const
+    {
+        return lhs < rhs;
+    }
+
+    bool operator()(ItemCandidate const& lhs, int rhs) const
+    {
+        return lhs.id > rhs;
+    }
+
+    bool operator()(int lhs, ItemCandidate const& rhs) const
+    {
+        return !(*this)(rhs, lhs);
+    }
+};
+
+
+struct Role {
+    std::string id;
+    std::string name;
+};
+
+}  // namespace
+
 
 std::string const& Ugg::name() const
 {
-    static std::string name_static = "u.gg";
+    static const std::string name_static = "u.gg";
     return name_static;
 }
 
@@ -19,24 +65,6 @@ std::vector<std::pair<std::string, std::string>> Ugg::options() const
 
 std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
 {
-    struct ItemCandidate {
-        int id;
-        int wins;
-        int matches;
-
-        bool operator<(ItemCandidate const& other) const
-        {
-            if (matches != other.matches)
-                return matches > other.matches;
-            if (wins != other.wins)
-                return wins > other.wins;
-            return id > other.id;
-        }
-    };
-    struct Role {
-        std::string id;
-        std::string name;
-    };
     static const std::array<Role, 5> roles{{{"4", "Top"},
                                             {"1", "Jungle"},
                                             {"5", "Mid"},
@@ -51,7 +79,20 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
     nlohmann::json data = nlohmann::json::parse(response.text).at("12").at("10");  // 12=world 10=platinum+
     std::vector<ItemSet> item_sets;
     std::set<int> added_items;
-    std::set<ItemCandidate> item_candidates;
+    std::set<ItemCandidate, ItemCandidateComparator> item_candidates;
+
+    auto add_candidate = [&](ItemCandidate&& candidate) {
+        if (added_items.count(candidate.id) != 0)
+            return;
+        auto it = item_candidates.find(candidate.id);  // we are comparing only ids
+        if (it != item_candidates.end())
+            if (candidate < *it)
+                item_candidates.erase(it);
+            else
+                return;
+        item_candidates.insert(std::move(candidate));
+    };
+
     for (Role const& role : roles) {
         if (role.id != "3")  // temporary
             continue;
@@ -67,18 +108,15 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
                 if (data_candidate_items.is_array()) {
                     int wins = data_candidate.at(1).get<int>();
                     int matches = data_candidate.at(2).get<int>();
-                    for (nlohmann::json const& data_candidate_item : data_candidate.at(0)) {
-                        int item_id = data_candidate_item.get<int>();
-                        if (added_items.count(item_id) == 0)
-                            item_candidates.insert({item_id, wins, matches});
-                    }
+                    for (nlohmann::json const& data_candidate_item : data_candidate.at(0))
+                        add_candidate({data_candidate_item.get<int>(), wins, matches});
                 }
                 else {
                     int item_id = data_candidate_items.get<int>();
                     if (added_items.count(item_id) == 0)
-                        item_candidates.insert({item_id,
-                                                data_candidate.at(1).get<int>(),
-                                                data_candidate.at(2).get<int>()});
+                        add_candidate({item_id,
+                                       data_candidate.at(1).get<int>(),
+                                       data_candidate.at(2).get<int>()});
                 }
             }
 
@@ -90,6 +128,7 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
         }
 
         item_candidates.clear();
+        std::swap(item_set.blocks[1], item_set.blocks[2]);
         item_set.blocks[0].name = "Starting items";
         item_set.blocks[1].name = "Boots";
         item_set.blocks[2].name = "First items";
