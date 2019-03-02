@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['_7eaggregator',['~Aggregator',['../structleitse_1_1_aggregator.html#a2751d9a2d021a3483d72cfd4692670de',1,'leitse::Aggregator']]],
-  ['_7escopeexit',['~ScopeExit',['../structutils_1_1_scope_exit.html#a71e7514197f1584d60b98fe3301f1a25',1,'utils::ScopeExit']]],
-  ['_7ethreadpool',['~ThreadPool',['../structutils_1_1_thread_pool.html#a6f0428a4b19a724f956d82e408013108',1,'utils::ThreadPool']]]
+  ['test',['test',['../namespaceutils_1_1test.html',1,'utils']]],
+  ['ugg',['Ugg',['../structleitse_1_1aggregators_1_1_ugg.html',1,'leitse::aggregators']]],
+  ['ugg_2ecpp',['ugg.cpp',['../ugg_8cpp.html',1,'']]],
+  ['ugg_2eh',['ugg.h',['../ugg_8h.html',1,'']]],
+  ['update_5fversion',['update_version',['../structleitse_1_1_data_dragon.html#ac8c0f976240b26536f7cd68b66780d8e',1,'leitse::DataDragon']]],
+  ['utils',['utils',['../namespaceutils.html',1,'']]]
 ];

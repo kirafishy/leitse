@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['options_5f',['options_',['../structconfig_1_1_config.html#afe62503feadccbca6a8449f4ad1f53b1',1,'config::Config']]]
+  ['key',['key',['../structleitse_1_1_champion.html#a1b6e46038a42b5e9779bfcd5cb9d8d02',1,'leitse::Champion']]]
 ];
