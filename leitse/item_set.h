@@ -25,13 +25,18 @@ struct ItemSet {
         std::vector<Item> items;
     };
 
-    std::string name;
-    Map map;
     std::vector<Block> blocks;
+
+    ItemSet() = default;
+    ItemSet(std::string aggregator, Map map, std::string role);
 
     void write(std::filesystem::path const& dir) const;
 
 private:
+    std::string aggregator_;
+    std::string role_;
+    Map map_;
+
     std::string map_to_string() const;
 };
 

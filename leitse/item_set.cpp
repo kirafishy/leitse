@@ -1,13 +1,21 @@
 #include "item_set.h"
 #include <fmt/format.h>
 #include <nlohmann/json.hpp>
+#include <fstream>
+#include <sstream>
 
 namespace leitse {
+
+ItemSet::ItemSet(std::string aggregator, Map map, std::string role) :
+    aggregator_{std::move(aggregator)},
+    map_{map},
+    role_{std::move(role)}
+{}
 
 void ItemSet::write(std::filesystem::path const& dir) const
 {
     nlohmann::json blocks_json;
-    for (Block const& block : blocks_) {
+    for (Block const& block : blocks) {
         nlohmann::json items_json;
         for (Item const& item : block.items) {
             nlohmann::json item_json;
@@ -22,12 +30,18 @@ void ItemSet::write(std::filesystem::path const& dir) const
         blocks_json.push_back(std::move(block_json));
     }
 
+    std::string map_str = map_to_string();
+    time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    std::string date = (std::stringstream{} << std::put_time(std::localtime(&time), "%Y-%m-%d")).str();
+
     nlohmann::json json;
-    json["title"] = name_;
+    json["title"] = fmt::format("{} {} {} ({})", map_str, aggregator_, role_, date);
     json["type"] = "custom";
-    json["map"] = map_to_string();
+    json["map"] = map_str;
     json["mode"] = "any";
     json["blocks"] = std::move(blocks_json);
+
+    std::ofstream{dir / fmt::format("{}_{}_{}.json", map_str, aggregator_, role_)} << json.dump();
 }
 
 std::string ItemSet::map_to_string() const
