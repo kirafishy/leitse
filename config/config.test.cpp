@@ -75,7 +75,10 @@ TEST_SUITE("config")
             {}
         };
         conf.set("str", "hello");
-        CHECK(conf.get<S>("str").s == conf.get_raw("str"));
+        CHECK(conf.get<S>("str").s == "hello");
+        S s{""};
+        conf.get("str", s);
+        CHECK(s.s == conf.get_raw("str"));
     }
 
     TEST_CASE("parse_args")

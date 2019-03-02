@@ -30,6 +30,9 @@ struct Config {
     T get(std::string const& key) const;
 
     template <typename T>
+    void get(std::string const& key, T& value) const;
+
+    template <typename T>
     void set(std::string key, T&& value);
 
 private:
@@ -72,6 +75,12 @@ T Config::get(std::string const& key) const
     }
     else
         return T{value};
+}
+
+template <typename T>
+void Config::get(std::string const& key, T& value) const
+{
+    value = get<T>(key);
 }
 
 template <typename T>
