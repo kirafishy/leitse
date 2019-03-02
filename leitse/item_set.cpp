@@ -9,8 +9,8 @@ namespace leitse {
 
 ItemSet::ItemSet(std::string aggregator, Map map, std::string role) :
     aggregator_{std::move(aggregator)},
-    map_{map},
-    role_{std::move(role)}
+    role_{std::move(role)},
+    map_{map}
 {}
 
 void ItemSet::write(std::filesystem::path const& dir) const
@@ -32,7 +32,9 @@ void ItemSet::write(std::filesystem::path const& dir) const
     }
 
     std::string map_str = map_to_string();
-    std::string date = (std::stringstream{} << date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())}).str();
+    std::stringstream date_ss;
+    date_ss << date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())};
+    std::string date = date_ss.str();
 
     nlohmann::json json;
     json["title"] = fmt::format("{} {} ({})", aggregator_, role_, date);
