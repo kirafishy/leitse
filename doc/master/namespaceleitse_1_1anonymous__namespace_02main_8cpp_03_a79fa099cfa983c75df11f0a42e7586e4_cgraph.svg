@@ -111,34 +111,34 @@
 <path fill="none" stroke="#191970" d="M450.3486,-132.4808C475.976,-127.9972 504.0699,-123.0822 529.7245,-118.5939"/>
 <polygon fill="#191970" stroke="#191970" points="530.5533,-122.0022 539.8005,-116.8311 529.3469,-115.1069 530.5533,-122.0022"/>
 </g>
-<!-- Node12 -->
-<g id="node13" class="node">
-<title>Node12</title>
-<g id="a_node13"><a xlink:href="structconfig_1_1_config.html#a0cf9f3b97d218358b2bd62f3b94a3efb" target="_top" xlink:title=" ">
+<!-- Node13 -->
+<g id="node14" class="node">
+<title>Node13</title>
+<g id="a_node14"><a xlink:href="structconfig_1_1_config.html#a0cf9f3b97d218358b2bd62f3b94a3efb" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="#000000" points="536.5,-50 536.5,-69 695.5,-69 695.5,-50 536.5,-50"/>
 <text text-anchor="middle" x="616" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">config::Config::get</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node12 -->
-<g id="edge14" class="edge">
-<title>Node1&#45;&gt;Node12</title>
+<!-- Node1&#45;&gt;Node13 -->
+<g id="edge15" class="edge">
+<title>Node1&#45;&gt;Node13</title>
 <path fill="none" stroke="#191970" d="M390.7115,-132.4476C419.1934,-116.7248 466.4705,-92.448 510,-78.5 518.8535,-75.6631 528.267,-73.2114 537.6889,-71.1023"/>
 <polygon fill="#191970" stroke="#191970" points="538.4298,-74.5231 547.4874,-69.0267 536.9791,-67.6751 538.4298,-74.5231"/>
 </g>
-<!-- Node14 -->
-<g id="node15" class="node">
-<title>Node14</title>
-<g id="a_node15"><a xlink:href="structleitse_1_1_data_dragon.html#a59f6a2098dde51fbd7253fe043491c4b" target="_top" xlink:title=" ">
+<!-- Node15 -->
+<g id="node16" class="node">
+<title>Node15</title>
+<g id="a_node16"><a xlink:href="structleitse_1_1_data_dragon.html#a59f6a2098dde51fbd7253fe043491c4b" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="#000000" points="540,-.5 540,-30.5 692,-30.5 692,-.5 540,-.5"/>
 <text text-anchor="start" x="548" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">leitse::DataDragon</text>
 <text text-anchor="middle" x="616" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">::champions</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node14 -->
-<g id="edge16" class="edge">
-<title>Node1&#45;&gt;Node14</title>
+<!-- Node1&#45;&gt;Node15 -->
+<g id="edge17" class="edge">
+<title>Node1&#45;&gt;Node15</title>
 <path fill="none" stroke="#191970" d="M380.5395,-132.2317C405.9425,-108.904 457.9114,-64.569 510,-40.5 516.4311,-37.5283 523.2504,-34.891 530.2064,-32.5538"/>
 <polygon fill="#191970" stroke="#191970" points="531.265,-35.89 539.7531,-29.5495 529.1637,-29.2128 531.265,-35.89"/>
 </g>
@@ -231,18 +231,34 @@
 <path fill="none" stroke="#191970" d="M718.3029,-147.5C735.4295,-147.5 753.126,-147.5 770.0302,-147.5"/>
 <polygon fill="#191970" stroke="#191970" points="770.441,-151.0001 780.4409,-147.5 770.4409,-144.0001 770.441,-151.0001"/>
 </g>
-<!-- Node13 -->
-<g id="node14" class="node">
-<title>Node13</title>
-<g id="a_node14"><a xlink:href="structconfig_1_1_config.html#ab957d0cdfdedba7a80d5459bb72d6f08" target="_top" xlink:title=" ">
+<!-- Node12 -->
+<g id="node13" class="node">
+<title>Node12</title>
+<g id="a_node13"><a xlink:href="structleitse_1_1_data_dragon.html#a99b1d9414c57d987ee8aca3ec804f738" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="#000000" points="788,-88.5 788,-118.5 940,-118.5 940,-88.5 788,-88.5"/>
+<text text-anchor="start" x="796" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">leitse::DataDragon</text>
+<text text-anchor="middle" x="864" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">::fetch_data</text>
+</a>
+</g>
+</g>
+<!-- Node11&#45;&gt;Node12 -->
+<g id="edge14" class="edge">
+<title>Node11&#45;&gt;Node12</title>
+<path fill="none" stroke="#191970" d="M692.0936,-103.5C719.1043,-103.5 749.6987,-103.5 777.5132,-103.5"/>
+<polygon fill="#191970" stroke="#191970" points="777.6231,-107.0001 787.6231,-103.5 777.623,-100.0001 777.6231,-107.0001"/>
+</g>
+<!-- Node14 -->
+<g id="node15" class="node">
+<title>Node14</title>
+<g id="a_node15"><a xlink:href="structconfig_1_1_config.html#ab957d0cdfdedba7a80d5459bb72d6f08" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="#000000" points="769.5,-50 769.5,-69 958.5,-69 958.5,-50 769.5,-50"/>
 <text text-anchor="middle" x="864" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">config::Config::get_raw</text>
 </a>
 </g>
 </g>
-<!-- Node12&#45;&gt;Node13 -->
-<g id="edge15" class="edge">
-<title>Node12&#45;&gt;Node13</title>
+<!-- Node13&#45;&gt;Node14 -->
+<g id="edge16" class="edge">
+<title>Node13&#45;&gt;Node14</title>
 <path fill="none" stroke="#191970" d="M695.8339,-59.5C716.0033,-59.5 737.9661,-59.5 759.1632,-59.5"/>
 <polygon fill="#191970" stroke="#191970" points="759.1665,-63.0001 769.1665,-59.5 759.1664,-56.0001 759.1665,-63.0001"/>
 </g>
