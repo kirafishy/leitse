@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../namespaceleitse_1_1anonymous__namespace_02main_8cpp_03.html#a79fa099cfa983c75df11f0a42e7586e4',1,'leitse::anonymous_namespace{main.cpp}::main()'],['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main():&#160;main.cpp']]],
-  ['main_5fimpl',['main_impl',['../namespaceleitse_1_1anonymous__namespace_02main_8cpp_03.html#a22efba3a32984564056202cc7db3f0de',1,'leitse::anonymous_namespace{main.cpp}']]]
+  ['itemsets',['itemsets',['../structleitse_1_1_aggregator.html#a50770d68448bca6796c717e585d99013',1,'leitse::Aggregator::itemsets()'],['../structleitse_1_1aggregators_1_1_ugg.html#a84eae29d7c3a982f943f61ea955f5e81',1,'leitse::aggregators::Ugg::itemsets()']]]
 ];

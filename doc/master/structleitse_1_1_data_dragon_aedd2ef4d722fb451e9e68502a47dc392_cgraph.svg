@@ -37,7 +37,7 @@
 <!-- Node11 -->
 <g id="node3" class="node">
 <title>Node11</title>
-<g id="a_node3"><a xlink:href="structleitse_1_1_data_dragon.html#a99b1d9414c57d987ee8aca3ec804f738" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structleitse_1_1_data_dragon.html#adf547f08bc967eaaf39de71aa5695edc" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="#000000" points="188,-.5 188,-30.5 340,-30.5 340,-.5 188,-.5"/>
 <text text-anchor="start" x="196" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">leitse::DataDragon</text>
 <text text-anchor="middle" x="264" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">::fetch_data</text>
