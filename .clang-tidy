@@ -37,4 +37,8 @@ HeaderFilterRegex: ".*"
 AnalyzeTemporaryDtors: false
 FormatStyle: none
 CheckOptions:
+  - key: hicpp-move-const-arg.CheckTriviallyCopyableMove
+    value: 0
+  - key: performance-move-const-arg.CheckTriviallyCopyableMove
+    value: 0
 ...
