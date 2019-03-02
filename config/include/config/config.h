@@ -2,6 +2,7 @@
 
 #include <fmt/format.h>
 #include <cstdlib>
+#include <filesystem>
 #include <stdexcept>
 #include <type_traits>
 #include <unordered_map>
@@ -21,7 +22,7 @@ struct Config {
     bool parse_args(int& argc, char** argv, bool allow_unknown = false);
 
     void parse_global_config(std::string_view const& app_name, bool allow_unknown = false);
-    void parse_file(std::string_view const& path, bool allow_unknown = false);
+    void parse_file(std::filesystem::path const& path, bool allow_unknown = false);
     void parse_file_content(std::string_view const& content, bool allow_unknown = false);
     std::string dump(std::string_view const& prefix) const;
     void show_help(std::string_view const& app_name) const;

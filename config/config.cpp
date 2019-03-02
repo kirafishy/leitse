@@ -84,7 +84,7 @@ void Config::parse_global_config(std::string_view const& app_name, bool allow_un
 {
     auto parse_if_exists = [&](std::filesystem::path const& path) {
         if (std::filesystem::exists(path))
-            parse_file(path.string(), allow_unknown);
+            parse_file(path, allow_unknown);
     };
 
     constexpr std::string_view file_name = "config.ini";
@@ -92,9 +92,9 @@ void Config::parse_global_config(std::string_view const& app_name, bool allow_un
     parse_if_exists(file_name);
 }
 
-void Config::parse_file(std::string_view const& path, bool allow_unknown)
+void Config::parse_file(std::filesystem::path const& path, bool allow_unknown)
 {
-    std::ifstream ifs{path.data(), std::ios::ate};
+    std::ifstream ifs{path, std::ios::ate};
     if (!ifs)
         throw std::runtime_error{fmt::format("could not open config file '{}'", path)};
     std::streamoff size = ifs.tellg();
