@@ -1,7 +1,8 @@
 #pragma once
 
-#include <vector>
+#include <nlohmann/json.hpp>
 #include <string_view>
+#include <vector>
 
 namespace leitse {
 
@@ -16,8 +17,7 @@ struct DataDragon {
 private:
     std::vector<Champion> champions_;
 
-    void fetch_url(std::string_view const& url);
-    void fetch_data(std::string_view const& data);
+    nlohmann::json fetch_data(std::string_view const& data);
 };
 
 }  // namespace leitse

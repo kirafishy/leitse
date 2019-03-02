@@ -20,7 +20,8 @@ endif ()
 
 
 find_library(cpr_LIB NAMES "cpr")
-
+find_library(zlib_LIB NAMES "zlib" "zlibd" NAMES_PER_DIR)
+find_package("CURL" REQUIRED)
 find_package("nlohmann_json" CONFIG REQUIRED)
 
 target_link_libraries("${target}_base"
@@ -28,10 +29,13 @@ target_link_libraries("${target}_base"
     "utils"
 
     "${cpr_LIB}"
-
+    "${zlib_LIB}"
+    "CURL::libcurl"
     "nlohmann_json::nlohmann_json"
 )
 
-if (UNIX)
+if (WIN32)
+    target_link_libraries("${target}_base" "Crypt32" "ws2_32")
+else ()
     target_link_libraries("${target}_base" "stdc++fs")
 endif ()
