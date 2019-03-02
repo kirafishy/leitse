@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['scopeexit',['ScopeExit',['../structutils_1_1_scope_exit.html',1,'utils']]],
-  ['sharedcallable',['SharedCallable',['../structutils_1_1_thread_pool_1_1_shared_callable.html',1,'utils::ThreadPool']]]
+  ['role',['Role',['../structleitse_1_1aggregators_1_1anonymous__namespace_02ugg_8cpp_03_1_1_role.html',1,'leitse::aggregators::anonymous_namespace{ugg.cpp}']]]
 ];
