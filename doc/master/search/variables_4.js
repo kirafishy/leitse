@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name',['name',['../structleitse_1_1_champion.html#af62130a251291c083eeabd7998ad9140',1,'leitse::Champion']]]
+  ['key',['key',['../structleitse_1_1_champion.html#a1b6e46038a42b5e9779bfcd5cb9d8d02',1,'leitse::Champion']]]
 ];
