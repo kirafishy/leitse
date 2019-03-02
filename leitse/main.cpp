@@ -42,7 +42,8 @@ void main_impl(int argc, char** argv)
                         item_set.write(item_set_dir);
                 }
                 catch (std::exception const& ex) {
-                    spdlog::error("could not get item sets from '{}' for '{}'", aggregator->name(), champion.name);
+                    spdlog::error("could not get item sets from '{}' for '{}': {}",
+                                  aggregator->name(), champion.name, ex.what());
                 }
             });
     }
