@@ -16,7 +16,7 @@ struct ItemSet {
     };
 
     struct Item {
-        std::string id;
+        int id;
         int count = 1;
     };
 

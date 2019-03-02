@@ -20,7 +20,7 @@ void ItemSet::write(std::filesystem::path const& dir) const
         nlohmann::json items_json;
         for (Item const& item : block.items) {
             nlohmann::json item_json;
-            item_json["id"] = item.id;
+            item_json["id"] = std::to_string(item.id);
             item_json["count"] = item.count;
             items_json.push_back(std::move(item_json));
         }
