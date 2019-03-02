@@ -98,16 +98,18 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
 
         std::set<int> added_items;
         std::set<ItemCandidate, ItemCandidateComparator> item_candidates;
-        auto add_candidate = [&](ItemCandidate candidate) {
+        auto add_candidate = [&](ItemCandidate&& candidate) {
             if (added_items.count(candidate.id) != 0)
                 return;
             auto it = item_candidates.find(candidate.id);  // we are comparing only ids
-            if (it != item_candidates.end())
-                if (candidate < *it)
-                    item_candidates.erase(it);
-                else
-                    return;
-            item_candidates.insert(std::move(candidate));
+            if (it != item_candidates.end()) {
+                item_candidates.insert({candidate.id,
+                                        it->wins + candidate.wins,
+                                        it->matches + candidate.matches});
+                item_candidates.erase(it);
+            }
+            else
+                item_candidates.insert(std::move(candidate));
         };
 
         auto add_items_to_block = [&](ItemSet::Block& block,
@@ -133,7 +135,7 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
             }
 
             while (!item_candidates.empty()) {
-                ItemCandidate item = item_candidates.extract(item_candidates.begin()).value();
+                ItemCandidate item = std::move(item_candidates.extract(item_candidates.begin()).value());
                 block.items.push_back({item.id, std::max(100 * item.matches / total_matches, 1)});
                 added_items.insert(item.id);
             }
