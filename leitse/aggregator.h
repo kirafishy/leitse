@@ -3,6 +3,7 @@
 #include "data_dragon.h"
 #include "item_set.h"
 #include <string>
+#include <string_view>
 #include <utility>
 #include <vector>
 
@@ -16,8 +17,9 @@ struct Aggregator {
     Aggregator(Aggregator&&) = delete;
     Aggregator& operator=(Aggregator&&) = delete;
 
-    virtual std::vector<std::pair<std::string, std::string>> get_options() const = 0;
-    virtual std::vector<ItemSet> get_itemsets(Champion const& champion) const = 0;
+    virtual std::string_view name() const = 0;
+    virtual std::vector<std::pair<std::string, std::string>> options() const = 0;
+    virtual std::vector<ItemSet> itemsets(Champion const& champion) const = 0;
 };
 
 }  // namespace leitse

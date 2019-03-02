@@ -16,9 +16,10 @@ void main_impl(int argc, char** argv)
     aggregators.push_back(std::make_unique<aggregators::Ugg>());
 
     config::Config conf;
+    conf.set("league_dir", "C:/Riot Games/League of Legends");
     conf.set("threads", 2 * std::thread::hardware_concurrency());
     for (std::unique_ptr<Aggregator> const& aggregator : aggregators)
-        for (std::pair<std::string, std::string> const& option : aggregator->get_options())
+        for (std::pair<std::string, std::string> const& option : aggregator->options())
             conf.set(option.first, option.second);
 
     conf.parse_global_config("leitse");
@@ -31,12 +32,20 @@ void main_impl(int argc, char** argv)
     data_dragon.populate();
 
     utils::ThreadPool thread_pool{conf.get<size_t>("threads")};
-    for (Champion const& champion : data_dragon.champions())
+    for (Champion const& champion : data_dragon.champions()) {
+        std::filesystem::path item_set_dir =
+                conf.get<std::filesystem::path>("league_dir") / "Config" / "Champions" / champion.id;
         for (std::unique_ptr<Aggregator> const& aggregator : aggregators)
-            thread_pool.submit([&aggregator, &champion] {
-                for (ItemSet const& item_set : aggregator->get_itemsets(champion))
-                    ;  // write item_set
+            thread_pool.submit([&aggregator, &champion, item_set_dir] {
+                try {
+                    for (ItemSet const& item_set : aggregator->itemsets(champion))
+                        item_set.write(item_set_dir);
+                }
+                catch (std::exception const& ex) {
+                    spdlog::error("could not get item sets from '{}' for '{}'", aggregator->name(), champion.name);
+                }
             });
+    }
 }
 
 int main(int argc, char** argv)

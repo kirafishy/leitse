@@ -5,8 +5,9 @@
 namespace leitse::aggregators {
 
 struct Ugg : Aggregator {
-    std::vector<std::pair<std::string, std::string>> get_options() const override;
-    std::vector<ItemSet> get_itemsets(Champion const& champion) const override;
+    std::string_view name() const override;
+    std::vector<std::pair<std::string, std::string>> options() const override;
+    std::vector<ItemSet> itemsets(Champion const& champion) const override;
 };
 
 }  // namespace leitse::aggregators
