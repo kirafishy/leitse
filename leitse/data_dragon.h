@@ -27,7 +27,7 @@ private:
     std::vector<Champion> champions_;
 
     void update_version();
-    nlohmann::json fetch_data(std::string_view const& data);
+    nlohmann::json fetch_data(std::string_view data);
 };
 
 }  // namespace leitse

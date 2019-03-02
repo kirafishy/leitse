@@ -80,7 +80,7 @@ bool Config::parse_args(int& argc, char** argv, bool allow_unknown)
     return false;
 }
 
-void Config::parse_global_config(std::string_view const& app_name, bool allow_unknown)
+void Config::parse_global_config(std::string_view app_name, bool allow_unknown)
 {
     auto parse_if_exists = [&](std::filesystem::path const& path) {
         if (std::filesystem::exists(path))
@@ -105,7 +105,7 @@ void Config::parse_file(std::filesystem::path const& path, bool allow_unknown)
     parse_file_content(content, allow_unknown);
 }
 
-void Config::parse_file_content(std::string_view const& content, bool allow_unknown)
+void Config::parse_file_content(std::string_view content, bool allow_unknown)
 {
     char const* ptr = content.data();
     char const* end = content.data() + content.size();
@@ -162,7 +162,7 @@ void Config::parse_file_content(std::string_view const& content, bool allow_unkn
     }
 }
 
-std::string Config::dump(std::string_view const& prefix) const
+std::string Config::dump(std::string_view prefix) const
 {
     std::vector<std::pair<std::string, std::string>> options(options_.begin(), options_.end());
     std::sort(options.begin(), options.end());
@@ -172,7 +172,7 @@ std::string Config::dump(std::string_view const& prefix) const
     return output;
 }
 
-void Config::show_help(std::string_view const& app_name) const
+void Config::show_help(std::string_view app_name) const
 {
     fmt::print("Usage: {} [--help] [+config_file] [-option...] [--] [positional arguments]\n", app_name);
     fmt::print("Options and their default values:\n{}", dump("\t"));

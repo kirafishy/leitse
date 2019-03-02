@@ -21,11 +21,11 @@ struct Config {
     /// Return true if application should show help (all arguments may not be parsed, but you can call again).
     bool parse_args(int& argc, char** argv, bool allow_unknown = false);
 
-    void parse_global_config(std::string_view const& app_name, bool allow_unknown = false);
+    void parse_global_config(std::string_view app_name, bool allow_unknown = false);
     void parse_file(std::filesystem::path const& path, bool allow_unknown = false);
-    void parse_file_content(std::string_view const& content, bool allow_unknown = false);
-    std::string dump(std::string_view const& prefix) const;
-    void show_help(std::string_view const& app_name) const;
+    void parse_file_content(std::string_view content, bool allow_unknown = false);
+    std::string dump(std::string_view prefix) const;
+    void show_help(std::string_view app_name) const;
 
     template <typename T>
     T get(std::string const& key) const;

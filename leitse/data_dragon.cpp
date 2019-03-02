@@ -42,7 +42,7 @@ void DataDragon::update_version()
     spdlog::info("[data_dragon] using version {}", version_);
 }
 
-nlohmann::json DataDragon::fetch_data(std::string_view const& filename)
+nlohmann::json DataDragon::fetch_data(std::string_view filename)
 {
     cpr::Url url = fmt::format("http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/{}.json", version_, filename);
     cpr::Response response = cpr::Get(url);

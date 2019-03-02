@@ -12,7 +12,7 @@
 
 namespace utils {
 
-std::filesystem::path get_kiwixz_home(std::string_view const& app_name)
+std::filesystem::path get_kiwixz_home(std::string_view app_name)
 {
 #ifdef _WIN32
     wchar_t* base;
