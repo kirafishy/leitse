@@ -39,5 +39,6 @@ target_link_libraries("${target}_base"
 if (WIN32)
     target_link_libraries("${target}_base" "Crypt32" "ws2_32")
 else ()
-    target_link_libraries("${target}_base" "stdc++fs")
+    find_package("OpenSSL" REQUIRED)
+    target_link_libraries("${target}_base" "OpenSSL::SSL" "stdc++fs")
 endif ()
