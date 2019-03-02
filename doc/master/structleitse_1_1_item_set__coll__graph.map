@@ -1,11 +1,11 @@
 <map id="leitse::ItemSet" name="leitse::ItemSet">
-<area shape="rect" id="node1" title=" " alt="" coords="5,601,177,628"/>
-<area shape="rect" id="node2" title=" " alt="" coords="156,497,368,539"/>
-<area shape="rect" id="node3" href="$structleitse_1_1_item_set_1_1_block.html" title=" " alt="" coords="141,408,383,435"/>
-<area shape="rect" id="node4" title=" " alt="" coords="237,289,449,331"/>
-<area shape="rect" id="node5" href="$structleitse_1_1_item_set_1_1_item.html" title=" " alt="" coords="238,185,470,212"/>
-<area shape="rect" id="node6" title="STL class." alt="" coords="135,96,267,123"/>
-<area shape="rect" id="node7" title="STL class." alt="" coords="99,5,302,47"/>
-<area shape="rect" id="node8" title="STL class." alt="" coords="529,185,712,212"/>
-<area shape="rect" id="node9" title=" " alt="" coords="601,96,640,123"/>
+<area shape="rect" id="node1" title=" " alt="" coords="489,540,661,567"/>
+<area shape="rect" id="node2" title=" " alt="" coords="358,436,570,477"/>
+<area shape="rect" id="node3" href="$structleitse_1_1_item_set_1_1_block.html" title=" " alt="" coords="184,332,427,359"/>
+<area shape="rect" id="node4" title=" " alt="" coords="137,213,349,255"/>
+<area shape="rect" id="node5" href="$structleitse_1_1_item_set_1_1_item.html" title=" " alt="" coords="5,102,237,129"/>
+<area shape="rect" id="node6" title="STL class." alt="" coords="317,102,499,129"/>
+<area shape="rect" id="node7" title=" " alt="" coords="389,5,427,32"/>
+<area shape="rect" id="node8" title="STL class." alt="" coords="589,221,721,247"/>
+<area shape="rect" id="node9" title="STL class." alt="" coords="553,95,756,136"/>
 </map>
