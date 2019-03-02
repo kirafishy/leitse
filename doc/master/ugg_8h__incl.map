@@ -1,9 +1,10 @@
 <map id="leitse/ugg.h" name="leitse/ugg.h">
-<area shape="rect" id="node1" title=" " alt="" coords="298,5,441,32"/>
-<area shape="rect" id="node2" href="$aggregator_8h.html" title=" " alt="" coords="298,80,441,107"/>
-<area shape="rect" id="node3" href="$data__dragon_8h.html" title=" " alt="" coords="5,155,157,181"/>
-<area shape="rect" id="node4" href="$item__set_8h.html" title=" " alt="" coords="181,155,304,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="328,155,411,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="435,155,527,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="552,155,635,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="250,5,393,32"/>
+<area shape="rect" id="node2" href="$aggregator_8h.html" title=" " alt="" coords="250,80,393,107"/>
+<area shape="rect" id="node3" href="$data__dragon_8h.html" title=" " alt="" coords="84,155,236,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,229,88,256"/>
+<area shape="rect" id="node6" href="$item__set_8h.html" title=" " alt="" coords="260,155,383,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="407,155,489,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="514,155,606,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="113,229,245,256"/>
 </map>

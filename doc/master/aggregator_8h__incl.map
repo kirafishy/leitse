@@ -1,8 +1,9 @@
 <map id="leitse/aggregator.h" name="leitse/aggregator.h">
-<area shape="rect" id="node1" title=" " alt="" coords="263,5,475,32"/>
-<area shape="rect" id="node2" href="$data__dragon_8h.html" title=" " alt="" coords="5,80,157,107"/>
-<area shape="rect" id="node3" href="$item__set_8h.html" title=" " alt="" coords="181,80,304,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="328,80,411,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="435,80,527,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="552,80,635,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="215,5,427,32"/>
+<area shape="rect" id="node2" href="$data__dragon_8h.html" title=" " alt="" coords="84,80,236,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,88,181"/>
+<area shape="rect" id="node5" href="$item__set_8h.html" title=" " alt="" coords="260,80,383,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="407,80,489,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="514,80,606,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="113,155,245,181"/>
 </map>
