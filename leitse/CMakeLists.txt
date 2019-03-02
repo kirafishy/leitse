@@ -22,6 +22,7 @@ endif ()
 find_library(cpr_LIB NAMES "cpr")
 find_package("CURL" REQUIRED)
 find_package("ZLIB" REQUIRED)
+find_package("unofficial-date" CONFIG REQUIRED)
 find_package("nlohmann_json" CONFIG REQUIRED)
 
 target_link_libraries("${target}_base"
@@ -31,6 +32,7 @@ target_link_libraries("${target}_base"
     "${cpr_LIB}"
     "CURL::libcurl"
     "ZLIB::ZLIB"
+    "unofficial::date::date"
     "nlohmann_json::nlohmann_json"
 )
 

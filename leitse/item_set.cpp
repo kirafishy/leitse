@@ -1,4 +1,5 @@
 #include "item_set.h"
+#include <date/date.h>
 #include <fmt/format.h>
 #include <nlohmann/json.hpp>
 #include <fstream>
@@ -31,17 +32,20 @@ void ItemSet::write(std::filesystem::path const& dir) const
     }
 
     std::string map_str = map_to_string();
-    time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    std::string date = (std::stringstream{} << std::put_time(std::localtime(&time), "%Y-%m-%d")).str();
+    std::string date = (std::stringstream{} << date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())}).str();
 
     nlohmann::json json;
-    json["title"] = fmt::format("{} {} {} ({})", map_str, aggregator_, role_, date);
+    json["title"] = fmt::format("{} {} ({})", aggregator_, role_, date);
     json["type"] = "custom";
     json["map"] = map_str;
     json["mode"] = "any";
     json["blocks"] = std::move(blocks_json);
 
-    std::ofstream{dir / fmt::format("{}_{}_{}.json", map_str, aggregator_, role_)} << json.dump();
+    std::filesystem::path path = dir / fmt::format("leitse_{}_{}_{}.json", map_str, aggregator_, role_);
+    std::ofstream ofs{path};
+    if (!ofs)
+        throw std::runtime_error{fmt::format("could not open item set: {}", path.string())};
+    ofs << json.dump();
 }
 
 std::string ItemSet::map_to_string() const

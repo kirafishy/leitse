@@ -2,9 +2,9 @@
 
 namespace leitse::aggregators {
 
-std::string_view Ugg::name() const
+std::string const& Ugg::name() const
 {
-    static constexpr std::string_view name_static = "u.gg";
+    static std::string name_static = "u.gg";
     return name_static;
 }
 
@@ -16,7 +16,9 @@ std::vector<std::pair<std::string, std::string>> Ugg::options() const
 std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
 {
     (void)champion;
-    return {};
+    std::vector<ItemSet> item_sets;
+    item_sets.emplace_back(std::string{name()}, ItemSet::Map::any, "tmp");
+    return item_sets;
 }
 
 }  // namespace leitse::aggregators

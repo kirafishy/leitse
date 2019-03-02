@@ -9,7 +9,7 @@ namespace leitse {
 Champion::Champion(nlohmann::json const& json)
 {
     json.at("key").get_to(key);
-    json.at("id").get_to(key);
+    json.at("id").get_to(id);
     json.at("name").get_to(name);
 }
 
