@@ -2,6 +2,7 @@
 #include <config/config.h>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+#include <utils/thread_pool.h>
 #include <filesystem>
 #include <thread>
 #include <vector>
@@ -25,6 +26,17 @@ void main_impl(int argc, char** argv)
         conf.show_help(argv[0]);
         return;
     }
+
+    DataDragon data_dragon;
+    data_dragon.populate();
+
+    utils::ThreadPool thread_pool{conf.get<size_t>("threads")};
+    for (Champion const& champion : data_dragon.champions())
+        for (std::unique_ptr<Aggregator> const& aggregator : aggregators)
+            thread_pool.submit([&aggregator, &champion] {
+                for (ItemSet const& item_set : aggregator->get_itemsets(champion))
+                    ;  // write item_set
+            });
 }
 
 int main(int argc, char** argv)
