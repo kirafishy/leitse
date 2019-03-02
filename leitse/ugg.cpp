@@ -114,7 +114,7 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
 
         auto add_items_to_block = [&](ItemSet::Block& block,
                                       nlohmann::json const& data_block) {
-            int total_matches = 0;
+            int total_matches = 1;
 
             for (nlohmann::json const& data_candidate : data_block) {
                 nlohmann::json const& data_candidate_items = data_candidate.at(0);
