@@ -7,9 +7,6 @@
 namespace leitse {
 
 struct ItemSet {
-    void write(std::filesystem::path const& dir) const;
-
-private:
     enum class Map {
         any,
         summoners_rift,
@@ -28,10 +25,13 @@ private:
         std::vector<Item> items;
     };
 
-    std::string name_;
-    Map map_;
-    std::vector<Block> blocks_;
+    std::string name;
+    Map map;
+    std::vector<Block> blocks;
 
+    void write(std::filesystem::path const& dir) const;
+
+private:
     std::string map_to_string() const;
 };
 
