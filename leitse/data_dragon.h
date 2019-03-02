@@ -13,7 +13,7 @@ struct Champion {
     std::string name;
 
     Champion() = default;
-    Champion(nlohmann::json const& json);
+    explicit Champion(nlohmann::json const& json);
 };
 
 
@@ -27,7 +27,7 @@ private:
     std::vector<Champion> champions_;
 
     void update_version();
-    nlohmann::json fetch_data(std::string_view data);
+    nlohmann::json fetch_data(std::string_view filename);
 };
 
 }  // namespace leitse
