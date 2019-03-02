@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['map',['map',['../structleitse_1_1_item_set.html#a494e402dd794b1bbff4f1fd6d3672fae',1,'leitse::ItemSet']]]
+  ['key',['key',['../structleitse_1_1_champion.html#a1b6e46038a42b5e9779bfcd5cb9d8d02',1,'leitse::Champion']]]
 ];

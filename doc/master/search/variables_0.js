@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['blocks',['blocks',['../structleitse_1_1_item_set.html#a8514cbc1541665e1c902d57575364f6e',1,'leitse::ItemSet']]]
+  ['aggregator_5f',['aggregator_',['../structleitse_1_1_item_set.html#a05641e0abb9ca25b81116dd7d5305141',1,'leitse::ItemSet']]]
 ];
