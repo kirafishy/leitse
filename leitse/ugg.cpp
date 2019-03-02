@@ -74,7 +74,7 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
 
     cpr::Url url = fmt::format("https://stats2.u.gg/lol/1.1/table/items/9_4/ranked_solo_5x5/{}/1.2.5.json", champion.key);
     cpr::Response response = cpr::Get(url);
-    if (response.status_code >= 400)
+    if (response.error || response.status_code >= 400)
         throw std::runtime_error{"could not u.gg stats"};
 
     nlohmann::json data = nlohmann::json::parse(response.text).at("12").at("10");  // 12=world 10=platinum+

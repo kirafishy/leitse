@@ -35,7 +35,7 @@ void DataDragon::populate()
 void DataDragon::update_version()
 {
     cpr::Response response = cpr::Get(cpr::Url{"https://ddragon.leagueoflegends.com/api/versions.json"});
-    if (response.status_code >= 400)
+    if (response.error || response.status_code >= 400)
         throw std::runtime_error{"could not update data dragon version"};
     nlohmann::json json = nlohmann::json::parse(response.text);
     version_ = json[0].get<std::string>();
@@ -46,7 +46,7 @@ nlohmann::json DataDragon::fetch_data(std::string_view filename)
 {
     cpr::Url url = fmt::format("http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/{}.json", version_, filename);
     cpr::Response response = cpr::Get(url);
-    if (response.status_code >= 400)
+    if (response.error || response.status_code >= 400)
         throw std::runtime_error{fmt::format("could not update get '{}' from data dragon", filename)};
     return nlohmann::json::parse(response.text);
 }
