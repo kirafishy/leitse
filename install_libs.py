@@ -15,6 +15,7 @@ VCPKG_LIBS = [
     "cpr",
     "doctest",
     "fmt",
+    "nlohmann-json",
     "spdlog",
 ]
 

@@ -19,9 +19,17 @@ if (BUILD_TESTS)
 endif ()
 
 
+find_library(cpr_LIB NAMES "cpr")
+
+find_package("nlohmann_json" CONFIG REQUIRED)
+
 target_link_libraries("${target}_base"
     "config"
     "utils"
+
+    "${cpr_LIB}"
+
+    "nlohmann_json::nlohmann_json"
 )
 
 if (UNIX)

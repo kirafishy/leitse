@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.12)
-include(CheckCXXCompilerFlag)
 
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "")
 set(CMAKE_CXX_COMPILER "clang++" CACHE FILEPATH "")
