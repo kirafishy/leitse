@@ -93,15 +93,15 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
                     int wins = data_candidate.at(1).get<int>();
                     int matches = data_candidate.at(2).get<int>();
                     for (nlohmann::json const& data_candidate_item : data_candidate.at(0))
-                        add_candidate({data_candidate_item.get<int>(), wins, matches});
-                    total_matches += matches;
+                        if (add_candidate({data_candidate_item.get<int>(), wins, matches}))
+                            total_matches += matches;
                 }
                 else {
                     int matches = data_candidate.at(2).get<int>();
-                    add_candidate({data_candidate_items.get<int>(),
-                                   data_candidate.at(1).get<int>(),
-                                   matches});
-                    total_matches += matches;
+                    if (add_candidate({data_candidate_items.get<int>(),
+                                       data_candidate.at(1).get<int>(),
+                                       matches}))
+                        total_matches += matches;
                 }
             }
 
@@ -141,15 +141,6 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
         });
 
         item_set.blocks.push_back(miscellaneous_block);
-
-
-        fmt::print("\n{}:\n", role.name);
-        for (ItemSet::Block const& bblock : item_set.blocks) {
-            fmt::print("\t{}: ", bblock.name);
-            for (ItemSet::Item const& item : bblock.items)
-                fmt::print("{}*{} ", item.id, item.count);
-            fmt::print("\n");
-        }
     }
 
     return item_sets;
