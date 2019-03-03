@@ -15,36 +15,6 @@ struct ItemCandidate {
 };
 
 
-bool operator<(ItemCandidate const& lhs, ItemCandidate const& rhs)  // sort most interesting items first
-{
-    if (lhs.matches != rhs.matches)
-        return lhs.matches > rhs.matches;
-    if (lhs.wins != rhs.wins)
-        return lhs.wins > rhs.wins;
-    return lhs.id > rhs.id;
-}
-
-
-struct ItemCandidateComparator {
-    using is_transparent = std::true_type;
-
-    bool operator()(ItemCandidate const& lhs, ItemCandidate const& rhs) const
-    {
-        return lhs < rhs;
-    }
-
-    bool operator()(ItemCandidate const& lhs, int rhs) const
-    {
-        return lhs.id > rhs;
-    }
-
-    bool operator()(int lhs, ItemCandidate const& rhs) const
-    {
-        return lhs > rhs.id;
-    }
-};
-
-
 struct Role {
     std::string id;
     std::string name;
@@ -97,19 +67,20 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
         ItemSet& item_set = item_sets.emplace_back(name(), ItemSet::Map::any, role.name);
 
         std::set<int> added_items;
-        std::set<ItemCandidate, ItemCandidateComparator> item_candidates;
+        std::vector<ItemCandidate> item_candidates;
         auto add_candidate = [&](ItemCandidate&& candidate) {
             if (added_items.count(candidate.id) != 0)
-                return;
-            auto it = item_candidates.find(candidate.id);  // we are comparing only ids
+                return false;
+            auto it = std::find_if(item_candidates.begin(), item_candidates.end(), [&](ItemCandidate const& e) {
+                return e.id == candidate.id;
+            });
             if (it != item_candidates.end()) {
-                item_candidates.insert({candidate.id,
-                                        it->wins + candidate.wins,
-                                        it->matches + candidate.matches});
-                item_candidates.erase(it);
+                it->wins += candidate.wins;
+                it->matches += candidate.matches;
             }
             else
-                item_candidates.insert(std::move(candidate));
+                item_candidates.push_back(std::move(candidate));
+            return true;
         };
 
         auto add_items_to_block = [&](ItemSet::Block& block,
@@ -134,8 +105,14 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
                 }
             }
 
+            std::sort(item_candidates.begin(), item_candidates.end(), [](ItemCandidate const& lhs, ItemCandidate const& rhs) {
+                if (lhs.matches != rhs.matches)
+                    return lhs.matches < rhs.matches;
+                return lhs.wins < rhs.wins;
+            });
             while (!item_candidates.empty()) {
-                ItemCandidate item = std::move(item_candidates.extract(item_candidates.begin()).value());
+                ItemCandidate item = std::move(item_candidates.back());
+                item_candidates.pop_back();
                 block.items.push_back({item.id, std::max(100 * item.matches / total_matches, 1)});
                 added_items.insert(item.id);
             }
