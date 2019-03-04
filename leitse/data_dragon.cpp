@@ -1,8 +1,6 @@
 #include "data_dragon.h"
-#include <cpr/cpr.h>
+#include "download.h"
 #include <spdlog/spdlog.h>
-
-#include <iostream>
 
 namespace leitse {
 
@@ -34,9 +32,7 @@ void DataDragon::populate()
 
 void DataDragon::update_version()
 {
-    cpr::Response response = cpr::Get(cpr::Url{"https://ddragon.leagueoflegends.com/api/versions.json"});
-    if (response.error || response.status_code >= 400)
-        throw std::runtime_error{"could not update data dragon version"};
+    cpr::Response response = checked_download("https://ddragon.leagueoflegends.com/api/versions.json");
     nlohmann::json json = nlohmann::json::parse(response.text);
     version_ = json[0].get<std::string>();
     spdlog::info("[data_dragon] using version {}", version_);
@@ -44,10 +40,7 @@ void DataDragon::update_version()
 
 nlohmann::json DataDragon::fetch_data(std::string_view filename)
 {
-    cpr::Url url = fmt::format("http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/{}.json", version_, filename);
-    cpr::Response response = cpr::Get(url);
-    if (response.error || response.status_code >= 400)
-        throw std::runtime_error{fmt::format("could not update get '{}' from data dragon", filename)};
+    cpr::Response response = checked_download(fmt::format("http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/{}.json", version_, filename));
     return nlohmann::json::parse(response.text);
 }
 
