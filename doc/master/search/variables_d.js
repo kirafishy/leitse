@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['wins',['wins',['../structleitse_1_1aggregators_1_1anonymous__namespace_02ugg_8cpp_03_1_1_item_candidate.html#a44afb3af48708bab4cfce3cc139da7d3',1,'leitse::aggregators::anonymous_namespace{ugg.cpp}::ItemCandidate']]],
-  ['workers_5f',['workers_',['../structutils_1_1_thread_pool.html#aabffd3c638a71f70aec367027d1395e8',1,'utils::ThreadPool']]]
+  ['tasks_5f',['tasks_',['../structutils_1_1_thread_pool.html#abea3c8537dc02e9918106704453de3cc',1,'utils::ThreadPool']]],
+  ['tasks_5fcondvar_5f',['tasks_condvar_',['../structutils_1_1_thread_pool.html#ae1ee75d1b00bd67f8f1549c474b6e71d',1,'utils::ThreadPool']]],
+  ['tasks_5fmutex_5f',['tasks_mutex_',['../structutils_1_1_thread_pool.html#a89d7a027203ef079078a65f67a4f21f0',1,'utils::ThreadPool']]]
 ];

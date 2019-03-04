@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['role_5f',['role_',['../structleitse_1_1_item_set.html#ad689c07d8cc59c9b749dfdcbe4bf9849',1,'leitse::ItemSet']]]
+  ['options_5f',['options_',['../structconfig_1_1_config.html#afe62503feadccbca6a8449f4ad1f53b1',1,'config::Config']]]
 ];

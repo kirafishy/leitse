@@ -5,6 +5,7 @@ var searchData=
   ['champion',['Champion',['../structleitse_1_1_champion.html',1,'leitse::Champion'],['../structleitse_1_1_champion.html#a47d6a6a30a779f704753c2270f313026',1,'leitse::Champion::Champion()=default'],['../structleitse_1_1_champion.html#abfc8afc7070f2a4e28f104014918a90a',1,'leitse::Champion::Champion(nlohmann::json const &amp;json)']]],
   ['champions',['champions',['../structleitse_1_1_data_dragon.html#a59f6a2098dde51fbd7253fe043491c4b',1,'leitse::DataDragon']]],
   ['champions_5f',['champions_',['../structleitse_1_1_data_dragon.html#ac32ef6487997e4960a12d79287e42359',1,'leitse::DataDragon']]],
+  ['checked_5fdownload',['checked_download',['../namespaceleitse.html#ae6311298e57be556517a34c61b4ab025',1,'leitse']]],
   ['clear',['clear',['../structconfig_1_1_config.html#a5ee3886968a7eab0af091bfaa98d0c15',1,'config::Config']]],
   ['config',['Config',['../structconfig_1_1_config.html',1,'config::Config'],['../namespaceconfig.html',1,'config']]],
   ['config_2ecpp',['config.cpp',['../config_8cpp.html',1,'']]],
