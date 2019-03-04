@@ -1,3 +1,4 @@
+#include "curl_handle.h"
 #include "ugg.h"
 #include <config/config.h>
 #include <spdlog/sinks/basic_file_sink.h>
@@ -12,6 +13,8 @@ namespace {
 
 void main_impl(int argc, char** argv)
 {
+    CurlHandle curl_handle;
+
     std::vector<std::unique_ptr<Aggregator>> aggregators;
     aggregators.push_back(std::make_unique<aggregators::Ugg>());
 

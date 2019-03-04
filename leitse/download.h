@@ -7,4 +7,4 @@ namespace leitse {
 
 cpr::Response checked_download(std::string_view url);
 
-};
+};  // namespace leitse

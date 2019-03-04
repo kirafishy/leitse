@@ -4,8 +4,8 @@
 
 namespace utils {
 
-template <typename T, typename... Args>
-auto bind_front(T&& callable, Args&&... args);
+template <typename Function, typename... Args>
+auto bind_front(Function&& callable, Args&&... args);
 
 
 template <typename Function, typename... Args>
