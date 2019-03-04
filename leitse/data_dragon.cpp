@@ -40,8 +40,8 @@ void DataDragon::update_version()
 
 nlohmann::json DataDragon::fetch_data(std::string_view filename)
 {
-    std::string response = simple_download(fmt::format("http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/{}.json",
-                                                        version_, filename));
+    std::string response = simple_download(fmt::format("https://ddragon.leagueoflegends.com/cdn/{}/data/en_US/{}.json",
+                                                       version_, filename));
     return nlohmann::json::parse(response);
 }
 

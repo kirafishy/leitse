@@ -34,7 +34,7 @@ Ugg::Ugg()
     items_version_ = stats_info.at(league_version_).at("items");
 
     response = simple_download(fmt::format("https://stats2.u.gg/lol/1.1/primary_roles/{}/{}.json",
-                                            league_version_, items_version_));
+                                           league_version_, items_version_));
     primary_roles_ = nlohmann::json::parse(response);
 }
 
@@ -58,7 +58,7 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
                                             {"5", "Mid"}}};
 
     std::string response = simple_download(fmt::format("https://stats2.u.gg/lol/1.1/table/items/{}/ranked_solo_5x5/{}/{}.json",
-                                                        league_version_, champion.key, items_version_));
+                                                       league_version_, champion.key, items_version_));
     nlohmann::json data = nlohmann::json::parse(response).at("12").at("10");  // 12=world 10=platinum+
     std::vector<ItemSet> item_sets;
 
