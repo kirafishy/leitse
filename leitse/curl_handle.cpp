@@ -6,8 +6,8 @@ namespace leitse::details_curl_handle {
 
 void init()
 {
-    if (int err = curl_global_init(CURL_GLOBAL_ALL); err != CURLE_OK)
-        throw std::runtime_error{fmt::format("could not initialize curl: error {}", err)};
+    if (CURLcode err = curl_global_init(CURL_GLOBAL_ALL); err != CURLE_OK)
+        throw std::runtime_error{fmt::format("could not initialize curl: {}", curl_easy_strerror(err))};
 }
 
 }  // namespace leitse::details_curl_handle

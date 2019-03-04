@@ -32,16 +32,17 @@ void DataDragon::populate()
 
 void DataDragon::update_version()
 {
-    cpr::Response response = checked_download("https://ddragon.leagueoflegends.com/api/versions.json");
-    nlohmann::json json = nlohmann::json::parse(response.text);
+    std::string response = simple_download("https://ddragon.leagueoflegends.com/api/versions.json");
+    nlohmann::json json = nlohmann::json::parse(response);
     version_ = json[0].get<std::string>();
     spdlog::info("[data_dragon] using version {}", version_);
 }
 
 nlohmann::json DataDragon::fetch_data(std::string_view filename)
 {
-    cpr::Response response = checked_download(fmt::format("http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/{}.json", version_, filename));
-    return nlohmann::json::parse(response.text);
+    std::string response = simple_download(fmt::format("http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/{}.json",
+                                                        version_, filename));
+    return nlohmann::json::parse(response);
 }
 
 }  // namespace leitse

@@ -1,10 +1,10 @@
 #pragma once
 
-#include <cpr/response.h>
+#include <string>
 #include <string_view>
 
 namespace leitse {
 
-cpr::Response checked_download(std::string_view url);
+std::string simple_download(std::string_view url);
 
 };  // namespace leitse

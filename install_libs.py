@@ -12,7 +12,7 @@ from pathlib import Path
 
 VCPKG_COMMIT = "4ad78224c989953cde21c77dd63345b9f722671b"
 VCPKG_LIBS = [
-    "cpr",
+    "curl",
     "date",
     "doctest",
     "fmt",

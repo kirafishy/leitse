@@ -19,7 +19,6 @@ if (BUILD_TESTS)
 endif ()
 
 
-find_library(cpr_LIB NAMES "cpr")
 find_package("CURL" REQUIRED)
 find_package("ZLIB" REQUIRED)
 find_package("unofficial-date" CONFIG REQUIRED)
@@ -29,7 +28,6 @@ target_link_libraries("${target}_base"
     "config"
     "utils"
 
-    "${cpr_LIB}"
     "CURL::libcurl"
     "ZLIB::ZLIB"
     "unofficial::date::date"

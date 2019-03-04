@@ -20,7 +20,7 @@ void main_impl(int argc, char** argv)
 
     config::Config conf;
     conf.set("league_dir", "C:/Riot Games/League of Legends");
-    conf.set("threads", 8 * std::thread::hardware_concurrency());
+    conf.set("threads", 2 * std::thread::hardware_concurrency());
     for (std::unique_ptr<Aggregator> const& aggregator : aggregators)
         for (std::pair<std::string, std::string> const& option : aggregator->options())
             conf.set(option.first, option.second);

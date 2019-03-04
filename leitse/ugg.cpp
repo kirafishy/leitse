@@ -25,17 +25,17 @@ struct Role {
 
 Ugg::Ugg()
 {
-    cpr::Response response = checked_download("https://u.gg/json/new_ugg_versions/1.2.json");
-    nlohmann::json stats_info = nlohmann::json::parse(response.text);
+    std::string response = simple_download("https://u.gg/json/new_ugg_versions/1.2.json");
+    nlohmann::json stats_info = nlohmann::json::parse(response);
     for (auto const& it : stats_info.items())
         if (std::isdigit(static_cast<unsigned char>(it.key()[0]))
             && it.key() > league_version_)
             league_version_ = it.key();
     items_version_ = stats_info.at(league_version_).at("items");
 
-    response = checked_download(fmt::format("https://stats2.u.gg/lol/1.1/primary_roles/{}/{}.json",
+    response = simple_download(fmt::format("https://stats2.u.gg/lol/1.1/primary_roles/{}/{}.json",
                                             league_version_, items_version_));
-    primary_roles_ = nlohmann::json::parse(response.text);
+    primary_roles_ = nlohmann::json::parse(response);
 }
 
 std::string const& Ugg::name() const
@@ -57,9 +57,9 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
                                             {"4", "Top"},
                                             {"5", "Mid"}}};
 
-    cpr::Response response = checked_download(fmt::format("https://stats2.u.gg/lol/1.1/table/items/{}/ranked_solo_5x5/{}/{}.json",
-                                                          league_version_, champion.key, items_version_));
-    nlohmann::json data = nlohmann::json::parse(response.text).at("12").at("10");  // 12=world 10=platinum+
+    std::string response = simple_download(fmt::format("https://stats2.u.gg/lol/1.1/table/items/{}/ranked_solo_5x5/{}/{}.json",
+                                                        league_version_, champion.key, items_version_));
+    nlohmann::json data = nlohmann::json::parse(response).at("12").at("10");  // 12=world 10=platinum+
     std::vector<ItemSet> item_sets;
 
     ItemSet::Block miscellaneous_block;
