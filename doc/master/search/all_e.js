@@ -7,5 +7,6 @@ var searchData=
   ['paths_2ecpp',['paths.cpp',['../paths_8cpp.html',1,'']]],
   ['paths_2eh',['paths.h',['../paths_8h.html',1,'']]],
   ['populate',['populate',['../structleitse_1_1_data_dragon.html#aedd2ef4d722fb451e9e68502a47dc392',1,'leitse::DataDragon']]],
-  ['primary_5froles_5f',['primary_roles_',['../structleitse_1_1aggregators_1_1_ugg.html#a443d8d01421406522c9967785fc70ce5',1,'leitse::aggregators::Ugg']]]
+  ['primary_5froles_5f',['primary_roles_',['../structleitse_1_1aggregators_1_1_ugg.html#a443d8d01421406522c9967785fc70ce5',1,'leitse::aggregators::Ugg']]],
+  ['priority',['priority',['../structleitse_1_1_item_set.html#af7bc0935d0c211ce0d08fe99c157c96a',1,'leitse::ItemSet']]]
 ];
