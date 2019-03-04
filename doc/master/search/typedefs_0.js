@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['function',['Function',['../structutils_1_1_scope_exit.html#a035ba1cd0d0fa6252a2355367f974ed4',1,'utils::ScopeExit']]]
+  ['curlhandle',['CurlHandle',['../namespaceleitse.html#a601a718c1b028dc1402652e42328e102',1,'leitse']]]
 ];
