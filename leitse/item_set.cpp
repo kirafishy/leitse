@@ -41,6 +41,7 @@ void ItemSet::write(std::filesystem::path const& dir) const
     json["type"] = "custom";
     json["map"] = map_str;
     json["mode"] = "any";
+    json["sortrank"] = priority;
     json["blocks"] = std::move(blocks_json);
 
     std::filesystem::path path = dir / fmt::format("leitse_{}_{}_{}.json", map_str, aggregator_, role_);

@@ -40,6 +40,7 @@ void main_impl(int argc, char** argv)
                 try {
                     for (ItemSet const& item_set : aggregator->itemsets(champion))
                         item_set.write(item_set_dir);
+                    spdlog::info("wrote item sets from '{}' for '{}'", aggregator->name(), champion.name);
                 }
                 catch (std::exception const& ex) {
                     spdlog::error("could not get item sets from '{}' for '{}': {}",

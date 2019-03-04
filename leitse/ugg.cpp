@@ -51,11 +51,11 @@ std::vector<std::pair<std::string, std::string>> Ugg::options() const
 
 std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
 {
-    static const std::array<Role, 5> roles{{{"4", "Top"},
-                                            {"1", "Jungle"},
-                                            {"5", "Mid"},
+    static const std::array<Role, 5> roles{{{"1", "Jungle"},
+                                            {"2", "Support"},
                                             {"3", "ADC"},
-                                            {"2", "Support"}}};
+                                            {"4", "Top"},
+                                            {"5", "Mid"}}};
 
     cpr::Response response = checked_download(fmt::format("https://stats2.u.gg/lol/1.1/table/items/{}/ranked_solo_5x5/{}/{}.json",
                                                           league_version_, champion.key, items_version_));
@@ -153,6 +153,9 @@ std::vector<ItemSet> Ugg::itemsets(Champion const& champion) const
 
         item_set.blocks.push_back(miscellaneous_block);
     }
+
+    for (unsigned i = 0; i < 5; ++i)
+        item_sets.at(primary_roles_.at(champion.key).at(i).get<int>() - 1).priority = 14 - i;
 
     return item_sets;
 }

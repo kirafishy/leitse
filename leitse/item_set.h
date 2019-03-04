@@ -26,6 +26,7 @@ struct ItemSet {
     };
 
     std::vector<Block> blocks;
+    int priority;
 
     ItemSet() = default;
     ItemSet(std::string aggregator, Map map, std::string role);
