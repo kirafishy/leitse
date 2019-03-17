@@ -38,6 +38,7 @@ void main_impl(int argc, char** argv)
     utils::ThreadPool thread_pool{conf.get<size_t>("threads")};
     for (Champion const& champion : data_dragon.champions()) {
         std::filesystem::path item_set_dir = champions_dir / champion.id / "Recommended";
+        std::filesystem::create_directories(item_set_dir);
         for (std::unique_ptr<Aggregator> const& aggregator : aggregators)
             thread_pool.submit([&aggregator, &champion, item_set_dir] {
                 try {
