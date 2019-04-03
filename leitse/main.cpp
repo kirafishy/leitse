@@ -36,7 +36,7 @@ void main_impl(int argc, char** argv)
     DataDragon data_dragon;
     data_dragon.populate();
 
-    std::filesystem::path league_dir = conf.get<std::filesystem::path>("league_dir");
+    auto league_dir = conf.get<std::filesystem::path>("league_dir");
     if (!std::filesystem::exists(league_dir))
         throw std::runtime_error{fmt::format("league_dir '{}' does not exist", league_dir.generic_string())};
 
