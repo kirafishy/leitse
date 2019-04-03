@@ -30,11 +30,17 @@ void main_impl(int argc, char** argv)
         conf.show_help(argv[0]);
         return;
     }
+    if (argc > 1)
+        throw std::runtime_error{"too much arguments"};
 
     DataDragon data_dragon;
     data_dragon.populate();
 
-    std::filesystem::path champions_dir = conf.get<std::filesystem::path>("league_dir") / "Config" / "Champions";
+    std::filesystem::path league_dir = conf.get<std::filesystem::path>("league_dir");
+    if (!std::filesystem::exists(league_dir))
+        throw std::runtime_error{fmt::format("league_dir '{}' does not exist", league_dir.generic_string())};
+
+    std::filesystem::path champions_dir = league_dir / "Config" / "Champions";
     utils::ThreadPool thread_pool{conf.get<size_t>("threads")};
     for (Champion const& champion : data_dragon.champions()) {
         std::filesystem::path item_set_dir = champions_dir / champion.id / "Recommended";
@@ -70,7 +76,7 @@ int main(int argc, char** argv)
         spdlog::drop_all();
     }
     catch (std::exception const& ex) {
-        spdlog::critical("critical exception: {}", ex.what());
+        spdlog::critical(ex.what());
         return 1;
     }
     return 0;

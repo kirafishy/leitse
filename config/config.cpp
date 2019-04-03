@@ -96,7 +96,7 @@ void Config::parse_file(std::filesystem::path const& path, bool allow_unknown)
 {
     std::ifstream ifs{path, std::ios::ate};
     if (!ifs)
-        throw std::runtime_error{fmt::format("could not open config file '{}'", path)};
+        throw std::runtime_error{fmt::format("could not open config file '{}'", path.generic_string())};
     std::streamoff size = ifs.tellg();
     std::string content(size, '\0');
     ifs.seekg(0, std::ios::beg);
