@@ -25,13 +25,13 @@ struct Role {
 
 Ugg::Ugg()
 {
-    std::string response = simple_download("https://u.gg/json/new_ugg_versions/1.2.json");
-    nlohmann::json stats_info = nlohmann::json::parse(response);
-    for (auto const& it : stats_info.items())
-        if (std::isdigit(static_cast<unsigned char>(it.key()[0]))
-            && it.key() > league_version_)
-            league_version_ = it.key();
-    items_version_ = stats_info.at(league_version_).at("items");
+    std::string response = simple_download("https://ddragon.leagueoflegends.com/api/versions.json");
+    league_version_ = nlohmann::json::parse(response)[0];
+    int dot = league_version_.find('.');
+    league_version_[dot] = '_';
+    league_version_.resize(league_version_.find('.', dot + 1));
+
+    items_version_ = "1.2.5";
 
     response = simple_download(fmt::format("https://stats2.u.gg/lol/1.1/primary_roles/{}/{}.json",
                                            league_version_, items_version_));
