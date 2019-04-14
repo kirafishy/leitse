@@ -27,7 +27,7 @@ Ugg::Ugg()
 {
     std::string response = simple_download("https://ddragon.leagueoflegends.com/api/versions.json");
     league_version_ = nlohmann::json::parse(response)[0];
-    int dot = league_version_.find('.');
+    size_t dot = league_version_.find('.');
     league_version_[dot] = '_';
     league_version_.resize(league_version_.find('.', dot + 1));
 
