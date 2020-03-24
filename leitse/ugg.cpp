@@ -31,7 +31,7 @@ Ugg::Ugg()
     league_version_[dot] = '_';
     league_version_.resize(league_version_.find('.', dot + 1));
 
-    items_version_ = "1.2.6";
+    items_version_ = "1.3.0";
 
     response = simple_download(fmt::format("https://stats2.u.gg/lol/1.1/primary_roles/{}/{}.json",
                                            league_version_, items_version_));

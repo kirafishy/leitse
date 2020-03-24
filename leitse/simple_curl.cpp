@@ -11,6 +11,7 @@ SimpleCurl::SimpleCurl()
         throw std::runtime_error{"could not initialize curl_easy"};
 
     check_curl(curl_easy_setopt(ptr_.get(), CURLOPT_ACCEPT_ENCODING, ""));
+    check_curl(curl_easy_setopt(ptr_.get(), CURLOPT_FAILONERROR, 1L));
     check_curl(curl_easy_setopt(ptr_.get(), CURLOPT_WRITEFUNCTION, &write_callback));
 }
 
